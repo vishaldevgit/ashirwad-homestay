@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rooms Gallery — Ashirwad Homestay, Bhimtal</title>
+  <meta name="description" content="A visual chronicle of our two-bedroom sanctuaries, where Kumaoni craftsmanship meets the quiet luxury of the hills.">
+  <link rel="icon" href="images/logo-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/logo-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* ── Page-specific ── */
+    body { background: var(--surface-base); }
+
+    /* ── Hero Header ── */
+    .rg-header {
+      padding: 56px 0 40px;
+      background: var(--surface-base);
+    }
+    .rg-header__eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .rg-header__title {
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.1;
+      margin-bottom: 0;
+    }
+    .rg-header__desc {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 340px;
+    }
+    .rg-header__split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+      gap: 40px;
+    }
+
+    /* ── Hero Image Split ── */
+    .rg-hero-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .rg-hero-main {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .rg-hero-main img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .rg-hero-main:hover img { transform: scale(1.03); }
+    .rg-hero-main__caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(10,20,15,0.72));
+      padding: 32px 24px 20px;
+    }
+    .rg-hero-main__caption h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .rg-hero-main__caption p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.5;
+    }
+
+    .rg-hero-side {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .rg-side-img {
+      border-radius: 8px;
+      overflow: hidden;
+      flex: 0 0 auto;
+      height: 180px;
+    }
+    .rg-side-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .rg-side-img:hover img { transform: scale(1.04); }
+
+    .rg-quote-card {
+      background: var(--surface-warm);
+      border-radius: 8px;
+      padding: 28px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .rg-quote-card blockquote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 19px;
+      color: var(--text-primary);
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+    .rg-quote-card cite {
+      font-family: var(--font-body);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── Cinematic Banner ── */
+    .rg-banner {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      margin: 40px 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .rg-banner img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .rg-banner__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 20, 15, 0.55);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+    .rg-banner__eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 14px;
+    }
+    .rg-banner__title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 48px;
+      color: #fff;
+      line-height: 1.15;
+      font-weight: 400;
+    }
+
+    /* ── Designed for Living ── */
+    .rg-living {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 60px;
+      align-items: center;
+      padding: 60px 0;
+    }
+    .rg-living__image {
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .rg-living__image img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .rg-living__eyebrow {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .rg-living__title {
+      font-family: var(--font-display);
+      font-size: 38px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .rg-living__desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 420px;
+    }
+    .rg-living__bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .rg-living__bullets li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-primary);
+    }
+    .rg-living__bullets li::before {
+      content: '';
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--color-terracotta);
+      flex-shrink: 0;
+    }
+
+    /* ── Sub Images Row ── */
+    .rg-sub-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .rg-sub-card {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .rg-sub-card img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .rg-sub-card:hover img { transform: scale(1.04); }
+    .rg-sub-card__caption {
+      padding: 12px 0 0;
+    }
+    .rg-sub-card__caption h4 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .rg-sub-card__caption p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ── CTA Section ── */
+    .rg-cta {
+      text-align: center;
+      padding: 64px 0;
+      background: var(--surface-base);
+    }
+    .rg-cta h2 {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--text-primary);
+      margin-bottom: 32px;
+    }
+    .rg-cta__buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+    }
+    .btn-solid-dark {
+      background: var(--color-forest);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .btn-solid-dark:hover { background: var(--color-forest-light); transform: translateY(-1px); }
+    .btn-outline-text {
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+    .btn-outline-text:hover { gap: 10px; }
+
+    /* ── Stitch Footer ── */
+    .stitch-footer {
+      background: var(--color-forest);
+      color: #fff;
+      padding: 64px 0 32px;
+    }
+    .stitch-footer__grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .stitch-footer__brand-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--color-marigold);
+      margin-bottom: 12px;
+    }
+    .stitch-footer__brand-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 220px;
+    }
+    .stitch-footer__heading {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 20px;
+    }
+    .stitch-footer__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .stitch-footer__links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .stitch-footer__links a:hover { color: #fff; }
+    .stitch-footer__contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+    }
+    .stitch-footer__contact-item i { font-size: 14px; margin-top: 1px; flex-shrink: 0; }
+    .stitch-footer__social {
+      display: flex;
+      gap: 14px;
+      margin-top: 4px;
+    }
+    .stitch-footer__social a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+    .stitch-footer__social a:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+    .stitch-footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .stitch-footer__copyright {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+    .stitch-footer__legal-links {
+      display: flex;
+      gap: 20px;
+    }
+    .stitch-footer__legal-links a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .stitch-footer__legal-links a:hover { color: rgba(255,255,255,0.7); }
+
+    @media (max-width: 900px) {
+      .rg-header__split { grid-template-columns: 1fr; }
+      .rg-hero-grid { grid-template-columns: 1fr; }
+      .rg-living { grid-template-columns: 1fr; }
+      .rg-sub-grid { grid-template-columns: 1fr; }
+      .stitch-footer__grid { grid-template-columns: 1fr 1fr; }
+      .rg-banner__title { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo"><svg class="site-logo__mountain" viewBox="0 0 44 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M0 30 L15 7 L22 16 L29 3 L44 30 Z"/><path d="M25.5 11 L29 3 L32.5 11 Z" opacity="0.45"/></svg><div class="site-logo__text"><span class="site-logo__name">ASHIRWAD</span><span class="site-logo__sub">Homestay · Bhimtal</span></div></a>
+      <ul class="navbar__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="location.html">Location</a></li>
+      </ul>
+      <div class="navbar__cta">
+        <a href="book.html" class="btn btn--primary">Book Now</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html">Home</a>
+    <a href="rooms.html">Rooms</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="location.html">Location</a>
+    <a href="book.html" style="color: var(--color-terracotta);">Book Now</a>
+  </div>
+
+  <main>
+
+    <!-- Page Header -->
+    <section class="rg-header">
+      <div class="container">
+        <div class="rg-header__split">
+          <div>
+            <p class="rg-header__eyebrow">The Private Suites</p>
+            <h1 class="rg-header__title">Rooms Gallery</h1>
+          </div>
+          <p class="rg-header__desc">A visual chronicle of our two-bedroom sanctuaries, where Kumaoni craftsmanship meets the quiet luxury of the hills.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Image Split -->
+    <section style="padding-bottom: 0;">
+      <div class="container">
+        <div class="rg-hero-grid">
+          <!-- Large main image with overlay caption -->
+          <div class="rg-hero-main">
+            <img src="assets/images/room-valley-view.jpg" alt="The Valley View Suite">
+            <div class="rg-hero-main__caption">
+              <h3>The Valley View Suite</h3>
+              <p>Our premier 2-BHK flat features wrap-around windows that frame the ever-changing Bhimtal horizon.</p>
+            </div>
+          </div>
+          <!-- Side column: small image + quote -->
+          <div class="rg-hero-side">
+            <div class="rg-side-img">
+              <img src="assets/images/room-double.jpg" alt="Bedroom detail">
+            </div>
+            <div class="rg-quote-card">
+              <blockquote>"A morning here begins before the sun reaches the valley floor."</blockquote>
+              <cite>Kabir · Second Visit</cite>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cinematic Banner -->
+    <div class="container">
+      <div class="rg-banner">
+        <img src="assets/images/banner-quiet-heights.jpg" alt="Quiet moments lofty heights">
+        <div class="rg-banner__overlay">
+          <p class="rg-banner__eyebrow">The Balcony Perspective</p>
+          <h2 class="rg-banner__title">Quiet moments, lofty heights.</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Designed for Living -->
+    <section>
+      <div class="container">
+        <div class="rg-living">
+          <div class="rg-living__image">
+            <img src="assets/images/room-living.jpg" alt="Living area">
+          </div>
+          <div>
+            <p class="rg-living__eyebrow">Curated Spaces</p>
+            <h2 class="rg-living__title">Designed for Living</h2>
+            <p class="rg-living__desc">Our 2-BHK flats are more than just accommodations; they are fully-equipped homes. From the artisanal teak furniture to the curated book selection, every corner has been considered.</p>
+            <ul class="rg-living__bullets">
+              <li>King Size Plush Beds</li>
+              <li>Private Mountain Balcony</li>
+              <li>Fully Functional Kitchen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sub-image grid with Sun-Drenched Living -->
+    <section style="padding-top: 0;">
+      <div class="container">
+        <div class="rg-sub-grid">
+          <div class="rg-sub-card">
+            <img src="assets/images/room-living.jpg" alt="Sun-drenched living room">
+            <div class="rg-sub-card__caption">
+              <h4>Sun-Drenched Living</h4>
+              <p>Each flat boasts an expansive living area designed for slow afternoons and shared conversations.</p>
+            </div>
+          </div>
+          <div class="rg-sub-card">
+            <img src="assets/images/room-twin.jpg" alt="Second bedroom">
+          </div>
+          <div class="rg-sub-card">
+            <img src="assets/images/kitchen-morning.jpg" alt="Kitchen area">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="rg-cta">
+      <div class="container">
+        <h2>Ready to wake up to this view?</h2>
+        <div class="rg-cta__buttons">
+          <a href="book.html" class="btn-solid-dark">SECURE YOUR STAY</a>
+          <a href="amenities.html" class="btn-outline-text">VIEW ALL AMENITIES <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Stitch-matched Footer -->
+  <footer class="stitch-footer">
+    <div class="container">
+      <div class="stitch-footer__grid">
+        <div>
+          <p class="stitch-footer__brand-name">Ashirwad Homestay</p>
+          <p class="stitch-footer__brand-desc">A boutique retreat perched in the hills of Bhimtal, offering curated experiences and quiet luxury for those seeking the Kumaoni mountains.</p>
+        </div>
+        <div>
+          <p class="stitch-footer__heading">Explore</p>
+          <ul class="stitch-footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="stitch-footer__heading">Connect</p>
+          <div class="stitch-footer__contact-item"><i class="ph ph-map-pin"></i> Bhimtal, Uttarakhand</div>
+          <div class="stitch-footer__contact-item"><i class="ph ph-envelope"></i> hello@ashirwad.com</div>
+          <div class="stitch-footer__contact-item"><i class="ph ph-phone"></i> +91 79061 74040</div>
+        </div>
+        <div>
+          <p class="stitch-footer__heading">Follow</p>
+          <div class="stitch-footer__social">
+            <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="stitch-footer__bottom">
+        <span class="stitch-footer__copyright">© 2024 Ashirwad Homestay, Bhimtal.</span>
+        <div class="stitch-footer__legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

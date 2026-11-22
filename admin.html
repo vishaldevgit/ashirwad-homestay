@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Ashirwad Homestay</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f5f5f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 32px 16px;
+    }
+
+    /* ── LOGIN ── */
+    #login-screen {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px 32px;
+      width: 100%;
+      max-width: 360px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      margin-top: 80px;
+    }
+    #login-screen h1 { font-size: 20px; font-weight: 700; color: #1a3d2b; margin-bottom: 6px; }
+    #login-screen p { font-size: 13px; color: #888; margin-bottom: 24px; }
+    #login-screen input {
+      width: 100%; padding: 12px 14px; border: 1.5px solid #ddd;
+      border-radius: 8px; font-size: 15px; outline: none;
+      transition: border 0.2s;
+    }
+    #login-screen input:focus { border-color: #1a7a5e; }
+    #login-screen button {
+      width: 100%; margin-top: 12px; padding: 13px;
+      background: #1a7a5e; color: #fff; border: none;
+      border-radius: 8px; font-size: 15px; font-weight: 600;
+      cursor: pointer;
+    }
+    #login-screen button:hover { background: #145f4a; }
+    #login-error { color: #c0392b; font-size: 13px; margin-top: 8px; display: none; }
+
+    /* ── MAIN PANEL ── */
+    #admin-panel { width: 100%; max-width: 560px; display: none; }
+    .panel-header {
+      background: #1a3d2b;
+      color: #fff;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .panel-header h1 { font-size: 18px; font-weight: 700; }
+    .panel-header span { font-size: 12px; opacity: 0.7; }
+    #logout-btn {
+      background: rgba(255,255,255,0.15); border: none; color: #fff;
+      padding: 6px 14px; border-radius: 20px; font-size: 12px;
+      cursor: pointer; font-family: inherit;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      margin-bottom: 16px;
+    }
+    .card h2 { font-size: 15px; font-weight: 700; color: #1a3d2b; margin-bottom: 16px; }
+
+    /* ── RADIO OPTIONS ── */
+    .offer-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px;
+      border: 2px solid #eee;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: border 0.2s, background 0.2s;
+    }
+    .offer-option:hover { border-color: #1a7a5e; background: #f0faf5; }
+    .offer-option.selected { border-color: #1a7a5e; background: #f0faf5; }
+    .offer-option input[type="radio"] { margin-top: 3px; accent-color: #1a7a5e; width: 16px; height: 16px; flex-shrink: 0; }
+    .offer-option .opt-title { font-weight: 600; font-size: 14px; color: #1a3d2b; }
+    .offer-option .opt-desc { font-size: 12px; color: #888; margin-top: 2px; }
+    .offer-option .opt-badge {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      padding: 2px 8px; border-radius: 20px; margin-left: 6px;
+    }
+    .badge-green { background: #e0f5ed; color: #1a7a5e; }
+    .badge-orange { background: #fff0e0; color: #c65d00; }
+
+    /* ── FESTIVAL DETAILS ── */
+    #festival-details {
+      display: none;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #eee;
+    }
+    .form-row { margin-bottom: 14px; }
+    .form-row label { display: block; font-size: 12px; font-weight: 600; color: #555; margin-bottom: 5px; }
+    .form-row input {
+      width: 100%; padding: 10px 12px; border: 1.5px solid #ddd;
+      border-radius: 8px; font-size: 14px; outline: none;
+      font-family: inherit; transition: border 0.2s;
+    }
+    .form-row input:focus { border-color: #1a7a5e; }
+    .form-row .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    /* ── PREVIEW BAR ── */
+    #bar-preview-wrap {
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    #bar-preview {
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      color: #fff;
+      display: none;
+    }
+    #bar-preview.mode-off-season { background: #1a7a5e; display: block; }
+    #bar-preview.mode-festival { background: #FF9933; display: block; }
+    #bar-preview .strike { text-decoration: line-through; opacity: 0.65; font-weight: 400; }
+
+    /* ── SAVE BUTTON ── */
+    #save-btn {
+      width: 100%; padding: 15px;
+      background: #1a7a5e; color: #fff; border: none;
+      border-radius: 10px; font-size: 16px; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+      transition: background 0.2s;
+    }
+    #save-btn:hover { background: #145f4a; }
+    #save-btn:disabled { background: #aaa; cursor: not-allowed; }
+
+    #save-status {
+      text-align: center; font-size: 13px; margin-top: 10px;
+      min-height: 20px;
+    }
+    #save-status.success { color: #1a7a5e; font-weight: 600; }
+    #save-status.error { color: #c0392b; }
+
+    /* ── FIREBASE SETUP WARNING ── */
+    #firebase-warning {
+      background: #fff8e1; border: 1.5px solid #f59e0b;
+      border-radius: 10px; padding: 14px 16px;
+      font-size: 13px; color: #92400e; margin-bottom: 16px;
+      display: none;
+    }
+    #firebase-warning strong { display: block; margin-bottom: 4px; }
+    #firebase-warning code {
+      background: #fff; padding: 2px 6px; border-radius: 4px;
+      font-size: 12px; font-family: monospace;
+    }
+
+    .last-saved { font-size: 11px; color: #999; text-align: right; margin-top: 6px; }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <h1>🏔️ Ashirwad Admin</h1>
+  <p>Offer settings control panel</p>
+  <input type="password" id="pwd-input" placeholder="Enter password" autocomplete="current-password" />
+  <div id="login-error">Wrong password. Try again.</div>
+  <button onclick="doLogin()">Login →</button>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin-panel">
+  <div class="panel-header">
+    <div>
+      <h1>🏔️ Ashirwad Homestay</h1>
+      <span>Offer Settings</span>
+    </div>
+    <button id="logout-btn" onclick="doLogout()">Logout</button>
+  </div>
+
+  <!-- Firebase warning -->
+  <div id="firebase-warning">
+    <strong>⚠️ Firebase not configured</strong>
+    Open <code>firebase-config.js</code> and add your Firebase project credentials.
+    Changes below will not be saved until Firebase is set up.
+  </div>
+
+  <div class="card">
+    <h2>Select Offer Mode</h2>
+
+    <label class="offer-option" id="opt-none" onclick="selectMode('none')">
+      <input type="radio" name="offer-mode" value="none" id="radio-none">
+      <div>
+        <div class="opt-title">No Offer</div>
+        <div class="opt-desc">Regular price ₹6,000/night shown. No offer bar.</div>
+      </div>
+    </label>
+
+    <label class="offer-option" id="opt-off-season" onclick="selectMode('off-season')">
+      <input type="radio" name="offer-mode" value="off-season" id="radio-off-season">
+      <div>
+        <div class="opt-title">Off-Season Rate <span class="opt-badge badge-green">Option 3</span></div>
+        <div class="opt-desc">₹3,000/night · No expiry · Teal bar. Best for Sept–March.</div>
+      </div>
+    </label>
+
+    <label class="offer-option" id="opt-festival" onclick="selectMode('festival')">
+      <input type="radio" name="offer-mode" value="festival" id="radio-festival">
+      <div>
+        <div class="opt-title">Festival / Event Offer <span class="opt-badge badge-orange">Option 1</span></div>
+        <div class="opt-desc">Custom text + expiry date · Saffron bar. For Diwali, Independence Day, etc.</div>
+      </div>
+    </label>
+
+    <!-- Festival details (shown only when festival selected) -->
+    <div id="festival-details">
+      <div class="form-row">
+        <label>Offer Title (shown in bar)</label>
+        <input type="text" id="fest-text" placeholder="e.g. Diwali Special" oninput="updatePreview()" />
+      </div>
+      <div class="form-row row-2">
+        <div>
+          <label>Offer Price (₹)</label>
+          <input type="number" id="fest-price" placeholder="3000" value="3000" oninput="updatePreview()" />
+        </div>
+        <div>
+          <label>Original Price (₹)</label>
+          <input type="number" id="fest-original" placeholder="6000" value="6000" oninput="updatePreview()" />
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Valid Till</label>
+        <input type="text" id="fest-valid" placeholder="e.g. 5 Nov 2026" oninput="updatePreview()" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Preview -->
+  <div class="card">
+    <h2>Preview</h2>
+    <div id="bar-preview-wrap">
+      <div id="bar-preview">Loading preview…</div>
+    </div>
+    <div id="last-saved" class="last-saved"></div>
+  </div>
+
+  <!-- Save -->
+  <div class="card">
+    <button id="save-btn" onclick="saveOffer()">💾 Save & Go Live</button>
+    <div id="save-status"></div>
+  </div>
+</div>
+
+<script src="firebase-config.js"></script>
+<script>
+  // ── CONSTANTS ──
+  var ADMIN_PASSWORD = 'Welcome@123';
+
+  // ── LOGIN ──
+  function doLogin() {
+    var pwd = document.getElementById('pwd-input').value;
+    if (pwd === ADMIN_PASSWORD) {
+      sessionStorage.setItem('adminAuth', '1');
+      showPanel();
+    } else {
+      document.getElementById('login-error').style.display = 'block';
+      document.getElementById('pwd-input').value = '';
+    }
+  }
+
+  document.getElementById('pwd-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') doLogin();
+  });
+
+  function doLogout() {
+    sessionStorage.removeItem('adminAuth');
+    location.reload();
+  }
+
+  // ── INIT ──
+  window.addEventListener('DOMContentLoaded', function () {
+    if (sessionStorage.getItem('adminAuth') === '1') {
+      showPanel();
+    }
+  });
+
+  function showPanel() {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('admin-panel').style.display = 'block';
+
+    // Check Firebase config
+    if (!window.FIREBASE_CONFIG || window.FIREBASE_CONFIG.apiKey === 'YOUR_API_KEY') {
+      document.getElementById('firebase-warning').style.display = 'block';
+    } else {
+      initFirebase();
+    }
+
+    selectMode('none');
+  }
+
+  // ── FIREBASE ──
+  var db = null;
+
+  function initFirebase() {
+    var s1 = document.createElement('script');
+    s1.src = 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js';
+    s1.onload = function () {
+      var s2 = document.createElement('script');
+      s2.src = 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js';
+      s2.onload = function () {
+        if (!firebase.apps.length) firebase.initializeApp(window.FIREBASE_CONFIG);
+        db = firebase.firestore();
+        loadCurrentSettings();
+      };
+      document.head.appendChild(s2);
+    };
+    document.head.appendChild(s1);
+  }
+
+  function loadCurrentSettings() {
+    if (!db) return;
+    db.collection('settings').doc('offer').get().then(function (doc) {
+      if (doc.exists) {
+        var data = doc.data();
+        selectMode(data.mode || 'none');
+        if (data.mode === 'festival' && data.festival) {
+          document.getElementById('fest-text').value = data.festival.text || '';
+          document.getElementById('fest-price').value = data.festival.price || 3000;
+          document.getElementById('fest-original').value = data.festival.originalPrice || 6000;
+          document.getElementById('fest-valid').value = data.festival.validTill || '';
+        }
+        if (data.updatedAt) {
+          var d = data.updatedAt.toDate ? data.updatedAt.toDate() : new Date(data.updatedAt);
+          document.getElementById('last-saved').textContent = 'Last saved: ' + d.toLocaleString('en-IN');
+        }
+        updatePreview();
+      }
+    }).catch(function(e) {
+      console.warn('Could not load settings', e);
+    });
+  }
+
+  // ── MODE SELECTION ──
+  var currentMode = 'none';
+
+  function selectMode(mode) {
+    currentMode = mode;
+    ['none', 'off-season', 'festival'].forEach(function(m) {
+      var el = document.getElementById('opt-' + m);
+      var radio = document.getElementById('radio-' + m);
+      if (el) el.classList.toggle('selected', m === mode);
+      if (radio) radio.checked = (m === mode);
+    });
+    document.getElementById('festival-details').style.display = mode === 'festival' ? 'block' : 'none';
+    updatePreview();
+  }
+
+  // ── PREVIEW ──
+  function updatePreview() {
+    var bar = document.getElementById('bar-preview');
+    bar.className = '';
+
+    function fmt(n) { return '₹' + parseInt(n).toLocaleString('en-IN'); }
+
+    if (currentMode === 'off-season') {
+      bar.className = 'mode-off-season';
+      bar.innerHTML = '🏔️ Off-Season Rate &mdash; <strong>₹3,000/night</strong> <span class="strike">₹6,000</span> &nbsp;·&nbsp; Peak Season: ₹6,000 &nbsp; <strong>Book Now →</strong>';
+    } else if (currentMode === 'festival') {
+      var text = document.getElementById('fest-text').value || 'Festival Special';
+      var price = document.getElementById('fest-price').value || '3000';
+      var orig = document.getElementById('fest-original').value || '6000';
+      var till = document.getElementById('fest-valid').value || '';
+      bar.className = 'mode-festival';
+      bar.innerHTML = '🎉 ' + text + ' &mdash; <strong>' + fmt(price) + '/night</strong> <span class="strike">' + fmt(orig) + '</span>' + (till ? ' &nbsp;·&nbsp; Valid till ' + till : '') + ' &nbsp; <strong>Book Now →</strong>';
+    } else {
+      bar.className = '';
+      bar.style.display = 'none';
+      bar.style.display = '';
+      bar.innerHTML = '<span style="color:#888;font-weight:400;">No offer bar will be shown. Regular price ₹6,000/night displayed.</span>';
+      bar.style.background = '#f5f5f0';
+      bar.style.color = '#888';
+      bar.style.display = 'block';
+      bar.style.border = '1px dashed #ccc';
+      return;
+    }
+  }
+
+  // ── SAVE ──
+  function saveOffer() {
+    var btn = document.getElementById('save-btn');
+    var status = document.getElementById('save-status');
+
+    if (!db) {
+      status.className = 'error';
+      status.textContent = '⚠️ Firebase not configured. Set up firebase-config.js first.';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Saving…';
+    status.className = '';
+    status.textContent = '';
+
+    var config = {
+      mode: currentMode,
+      offSeason: { price: 3000, peakPrice: 6000 },
+      festival: {
+        text: document.getElementById('fest-text').value || 'Festival Special',
+        price: parseInt(document.getElementById('fest-price').value) || 3000,
+        originalPrice: parseInt(document.getElementById('fest-original').value) || 6000,
+        validTill: document.getElementById('fest-valid').value || ''
+      },
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    };
+
+    db.collection('settings').doc('offer').set(config).then(function () {
+      btn.disabled = false;
+      btn.textContent = '💾 Save & Go Live';
+      status.className = 'success';
+      status.textContent = '✅ Saved! Offer is now live on the website.';
+      document.getElementById('last-saved').textContent = 'Last saved: ' + new Date().toLocaleString('en-IN');
+      setTimeout(function() { status.textContent = ''; }, 4000);
+    }).catch(function (err) {
+      btn.disabled = false;
+      btn.textContent = '💾 Save & Go Live';
+      status.className = 'error';
+      status.textContent = '❌ Error: ' + err.message;
+    });
+  }
+</script>
+</body>
+</html>

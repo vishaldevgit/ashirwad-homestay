@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amenities — Ashirwad Homestay, Bhimtal | Full 2-BHK Facilities</title>
+  <meta name="description" content="Full amenities at Ashirwad Homestay, Bhimtal — induction kitchen, hot water geyser, TV, WiFi, free parking, covered veranda. Each 2-BHK set is fully self-contained.">
+  <meta name="keywords" content="ashirwad homestay amenities, bhimtal homestay facilities, 2bhk homestay kitchen bhimtal, homestay wifi bhimtal, free parking bhimtal homestay, kainchi dham accommodation facilities">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ashirwadhomestay.in/amenities.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ashirwad Homestay">
+  <meta property="og:url" content="https://ashirwadhomestay.in/amenities.html">
+  <meta property="og:title" content="Amenities — Ashirwad Homestay, Bhimtal">
+  <meta property="og:description" content="Full kitchen, private bathroom, hot water, TV, WiFi, free parking & covered veranda — all included in each 2-BHK set at Ashirwad Homestay, Bhimtal.">
+  <meta property="og:image" content="https://ashirwadhomestay.in/images/kitchen-full-wide.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Amenities — Ashirwad Homestay, Bhimtal">
+  <meta name="twitter:description" content="Full kitchen, private bathroom, hot water, TV, WiFi, free parking & covered veranda — all included in each 2-BHK set at Ashirwad Homestay, Bhimtal.">
+  <meta name="twitter:image" content="https://ashirwadhomestay.in/images/kitchen-full-wide.jpg">
+<link rel="icon" href="images/logo-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/logo-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* Amenities category */
+    .amen-category {
+      margin-bottom: var(--space-12);
+    }
+    .amen-category__header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 2px solid var(--color-cream-dark);
+    }
+    .amen-category__icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(46,125,138,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--color-teal);
+      flex-shrink: 0;
+    }
+    .amen-category__header h2 {
+      font-size: 24px;
+      margin: 0;
+    }
+    .amen-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+    }
+    .amen-item {
+      background: white;
+      border: 1px solid var(--color-cream-dark);
+      border-radius: 14px;
+      padding: var(--space-5) var(--space-5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--space-3);
+      transition: all 0.25s ease;
+    }
+    .amen-item:hover {
+      border-color: var(--color-teal);
+      box-shadow: 0 6px 20px rgba(46,125,138,0.1);
+      transform: translateY(-3px);
+    }
+    .amen-item i {
+      font-size: 28px;
+      color: var(--color-teal);
+    }
+    .amen-item span {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    /* Photo strip */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+      margin: var(--space-12) 0;
+    }
+    .photo-strip__item {
+      border-radius: 12px;
+      overflow: hidden;
+      height: 200px;
+    }
+    .photo-strip__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .photo-strip__item:hover img { transform: scale(1.05); }
+
+    /* Both sets note */
+    .both-sets-note {
+      background: var(--color-forest);
+      border-radius: 16px;
+      padding: var(--space-8) var(--space-10);
+      margin: var(--space-12) 0;
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+    }
+    .both-sets-note i {
+      font-size: 40px;
+      color: var(--color-marigold);
+      flex-shrink: 0;
+    }
+    .both-sets-note p {
+      color: rgba(255,255,255,0.82);
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .both-sets-note strong { color: white; }
+
+    @media (max-width: 1024px) { .amen-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  {
+      .amen-grid { grid-template-columns: repeat(2, 1fr); }
+      .photo-strip { grid-template-columns: 1fr 1fr; }
+      .both-sets-note { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px)  {
+      .amen-grid { grid-template-columns: repeat(2, 1fr); }
+      .photo-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script src="firebase-config.js"></script>
+  <script src="offer-bar.js"></script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo"><svg class="site-logo__mountain" viewBox="0 0 44 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M0 30 L15 7 L22 16 L29 3 L44 30 Z"/><path d="M25.5 11 L29 3 L32.5 11 Z" opacity="0.45"/></svg><div class="site-logo__text"><span class="site-logo__name">ASHIRWAD</span><span class="site-logo__sub">Homestay · Bhimtal</span></div></a>
+      <ul class="navbar__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="location.html">Location</a></li>
+        <li><a href="food.html">Food</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="navbar__cta">
+        <a href="book.html" class="btn btn--primary">Book Now</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html">Home</a>
+    <a href="rooms.html">Rooms</a>
+    <a href="location.html">Location</a>
+    <a href="food.html">Food</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="amenities.html" class="active">Amenities</a>
+    <a href="about.html">About</a>
+    <a href="book.html" class="btn btn--primary" style="margin-top:8px;">Book Now</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <section class="section" style="padding-bottom: var(--space-8);">
+    <div class="container reveal" style="text-align:center;">
+      <p class="eyebrow">What's Included</p>
+      <h1 class="font-display">Amenities</h1>
+      <p style="color: var(--text-secondary); max-width: 520px; margin: var(--space-4) auto 0; line-height: 1.7;">Both sets come fully equipped. Everything listed below is available in each 2-BHK set — no upgrades, no hidden charges.</p>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--surface-base); padding-top: 0;">
+    <div class="container">
+
+      <!-- BOTH SETS NOTE -->
+      <div class="both-sets-note reveal">
+        <i class="ph-duotone ph-info"></i>
+        <p><strong>Two independent 2-BHK sets</strong> — Set A and Set B each have identical amenities. Both include two bedrooms, a private kitchen, a private bathroom, and hall seating. Book one set for a family of 4, or both for groups of up to 8–10.</p>
+      </div>
+
+      <!-- BEDROOMS -->
+      <div class="amen-category reveal">
+        <div class="amen-category__header">
+          <div class="amen-category__icon"><i class="ph-duotone ph-bed"></i></div>
+          <div>
+            <h2 class="font-display">Bedrooms</h2>
+            <p style="color: var(--text-secondary); font-size: 14px; margin:0;">Double bedroom + Twin bedroom in each set</p>
+          </div>
+        </div>
+        <div class="amen-grid">
+          <div class="amen-item">
+            <i class="ph-duotone ph-bed-double"></i>
+            <span>King-size<br>Double Bed</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-bed"></i>
+            <span>Two Single<br>Beds (Twin Room)</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-dresser"></i>
+            <span>Wardrobe with<br>Storage</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-television-simple"></i>
+            <span>Flat-screen TV<br>(Both Rooms)</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-pillow"></i>
+            <span>Fresh Linen<br>Provided</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-lightbulb"></i>
+            <span>Good Natural<br>Light</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-armchair"></i>
+            <span>Chairs &amp;<br>Side Table</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHOTO STRIP 1 -->
+      <div class="photo-strip reveal">
+        <div class="photo-strip__item">
+          <img src="images/room-double-full.jpg" alt="Double bedroom">
+        </div>
+        <div class="photo-strip__item">
+          <img src="images/room-twin-full.jpg" alt="Twin bedroom">
+        </div>
+        <div class="photo-strip__item">
+          <img src="images/room-hall-chairs.jpg" alt="Hall seating area">
+        </div>
+      </div>
+
+      <!-- KITCHEN -->
+      <div class="amen-category reveal">
+        <div class="amen-category__header">
+          <div class="amen-category__icon"><i class="ph-duotone ph-cooking-pot"></i></div>
+          <div>
+            <h2 class="font-display">Full Kitchen</h2>
+            <p style="color: var(--text-secondary); font-size: 14px; margin:0;">Private fully equipped kitchen in each set</p>
+          </div>
+        </div>
+        <div class="amen-grid">
+          <div class="amen-item">
+            <i class="ph-duotone ph-lightning"></i>
+            <span>Induction<br>Cooktop</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-coffee"></i>
+            <span>Electric<br>Kettle</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-cooking-pot"></i>
+            <span>Pressure Cooker<br>&amp; Pans</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-fork-knife"></i>
+            <span>Full Crockery<br>Set</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-drop"></i>
+            <span>Sink with<br>Running Water</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-fire-simple"></i>
+            <span>Hot Water<br>Geyser (Kitchen)</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-cabinet"></i>
+            <span>Modular Blue<br>Cabinets</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-bowl-food"></i>
+            <span>Serving Dishes<br>&amp; Utensils</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHOTO STRIP 2 -->
+      <div class="photo-strip reveal">
+        <div class="photo-strip__item">
+          <img src="images/kitchen-full-wide.jpg" alt="Full kitchen">
+        </div>
+        <div class="photo-strip__item">
+          <img src="images/kitchen-counter-top.jpg" alt="Countertop with utensils">
+        </div>
+        <div class="photo-strip__item">
+          <img src="images/kitchen-sink-geyser.jpg" alt="Sink with geyser">
+        </div>
+      </div>
+
+      <!-- BATHROOM -->
+      <div class="amen-category reveal">
+        <div class="amen-category__header">
+          <div class="amen-category__icon"><i class="ph-duotone ph-shower"></i></div>
+          <div>
+            <h2 class="font-display">Private Bathroom</h2>
+            <p style="color: var(--text-secondary); font-size: 14px; margin:0;">Attached private bathroom in each set</p>
+          </div>
+        </div>
+        <div class="amen-grid">
+          <div class="amen-item">
+            <i class="ph-duotone ph-toilet"></i>
+            <span>Western<br>Toilet</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-shower"></i>
+            <span>Hot Water<br>Shower (Geyser)</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-mirror"></i>
+            <span>Vanity Mirror<br>&amp; Basin</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-sparkle"></i>
+            <span>Clean &amp;<br>Well Maintained</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMMON & OUTDOOR -->
+      <div class="amen-category reveal">
+        <div class="amen-category__header">
+          <div class="amen-category__icon"><i class="ph-duotone ph-house"></i></div>
+          <div>
+            <h2 class="font-display">Common &amp; Outdoor</h2>
+            <p style="color: var(--text-secondary); font-size: 14px; margin:0;">Shared amenities available to all guests</p>
+          </div>
+        </div>
+        <div class="amen-grid">
+          <div class="amen-item">
+            <i class="ph-duotone ph-wifi-high"></i>
+            <span>Free<br>WiFi</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-car"></i>
+            <span>Free Parking<br>in Compound</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-armchair"></i>
+            <span>Covered Veranda<br>with Seating</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-flower"></i>
+            <span>Garden &amp;<br>Green Compound</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-clock"></i>
+            <span>24hr Host<br>On Premises</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-bus"></i>
+            <span>150m to Shuttle<br>Parking</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-storefront"></i>
+            <span>Local Shops<br>Walking Distance</span>
+          </div>
+          <div class="amen-item">
+            <i class="ph-duotone ph-bowl-food"></i>
+            <span>Home Food<br>on Order</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="reveal" style="text-align:center; padding: var(--space-8) 0;">
+        <p class="eyebrow">Ready to Book?</p>
+        <h2 class="font-display">All this, for ₹6,000 per night</h2>
+        <p style="color: var(--text-secondary); max-width: 480px; margin: var(--space-4) auto var(--space-8); line-height:1.7;">A full 2-BHK set — two rooms, private kitchen, private bathroom — for ₹1,500 per person per night in a family of 4.</p>
+        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="btn btn--primary" target="_blank">
+            <i class="ph ph-whatsapp-logo"></i> Book on WhatsApp
+          </a>
+          <a href="rooms.html" class="btn btn--outline-dark">View Rooms &amp; Rates</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="ph ph-whatsapp-logo"></i>
+  </a>
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    <div>
+      <div class="bottom-bar__price">₹6,000</div>
+      <div class="bottom-bar__label">per set / per night</div>
+    </div>
+    <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="btn btn--primary" target="_blank">
+      Book Now <i class="ph ph-arrow-right"></i>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo"><img src="images/logo-white.png" alt="Ashirwad Homestay — Bhimtal" style="height:110px;width:auto;"></a>
+          <p class="footer__desc">Two independent 2-BHK sets in Bhimtal, Uttarakhand.<br>150m from Kainchi Dham shuttle parking.</p>
+          <p style="font-size:13px; color: rgba(255,255,255,0.5); margin-top: var(--space-3);">Hosted by Ahin &amp; Divya Pande</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Pages</h4>
+          <ul class="footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms &amp; Rates</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="food.html">Food</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="book.html">Book Now</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <ul class="footer__links">
+            <li><p>Industrial Area, Bhimtal,<br>District Nainital, Uttarakhand</p></li>
+            <li><a href="tel:+917906174040">+91 79061 74040</a></li>
+            <li><a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." target="_blank">WhatsApp Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2026 Ashirwad Homestay. All rights reserved. &nbsp;|&nbsp; ashirwadhomestay.in
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

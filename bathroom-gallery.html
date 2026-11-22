@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bathroom Gallery — Ashirwad Homestay, Bhimtal</title>
+  <meta name="description" content="Explore our private bathrooms featuring hand-painted floral tiles, high-end brass fixtures, and a commitment to impeccable hygiene.">
+  <link rel="icon" href="images/logo-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/logo-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    body { background: var(--surface-base); }
+
+    /* ── Header ── */
+    .bg-header {
+      padding: 56px 0 40px;
+    }
+    .bg-header__layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+    }
+    .bg-header__eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .bg-header__title {
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.1;
+    }
+    .bg-header__desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 340px;
+      align-self: end;
+    }
+
+    /* ── Category Tabs ── */
+    .bg-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .bg-tab {
+      padding: 9px 20px;
+      border-radius: 4px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: none;
+      border: 1px solid var(--border-light);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .bg-tab:hover { border-color: var(--border-medium); color: var(--text-primary); }
+    .bg-tab.active {
+      background: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+      color: #fff;
+    }
+
+    /* ── 3-column uniform grid ── */
+    .bg-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .bg-grid-item {
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      transition: box-shadow 0.3s ease;
+    }
+    .bg-grid-item img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .bg-grid-item:hover img { transform: scale(1.05); }
+    .bg-grid-item:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
+
+    /* ── Spacer before footer ── */
+    .bg-spacer { height: 80px; }
+
+    /* ── Stitch Footer ── */
+    .stitch-footer {
+      background: var(--color-forest);
+      color: #fff;
+      padding: 64px 0 32px;
+    }
+    .stitch-footer__grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .stitch-footer__brand-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--color-marigold);
+      margin-bottom: 12px;
+    }
+    .stitch-footer__brand-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 220px;
+    }
+    .stitch-footer__heading {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 20px;
+    }
+    .stitch-footer__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .stitch-footer__links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .stitch-footer__links a:hover { color: #fff; }
+    .stitch-footer__contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+    }
+    .stitch-footer__contact-item i { font-size: 14px; margin-top: 1px; }
+    .stitch-footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    @media (max-width: 900px) {
+      .bg-header__layout { grid-template-columns: 1fr; }
+      .bg-grid { grid-template-columns: 1fr 1fr; }
+      .stitch-footer__grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .bg-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo"><svg class="site-logo__mountain" viewBox="0 0 44 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M0 30 L15 7 L22 16 L29 3 L44 30 Z"/><path d="M25.5 11 L29 3 L32.5 11 Z" opacity="0.45"/></svg><div class="site-logo__text"><span class="site-logo__name">ASHIRWAD</span><span class="site-logo__sub">Homestay · Bhimtal</span></div></a>
+      <ul class="navbar__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="location.html">Location</a></li>
+      </ul>
+      <div class="navbar__cta">
+        <a href="book.html" class="btn btn--primary">Book Now</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html">Home</a>
+    <a href="rooms.html">Rooms</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="location.html">Location</a>
+    <a href="book.html" style="color: var(--color-terracotta);">Book Now</a>
+  </div>
+
+  <main>
+
+    <!-- Page Header -->
+    <section class="bg-header">
+      <div class="container">
+        <div class="bg-header__layout">
+          <div>
+            <p class="bg-header__eyebrow">Sanctuary of Cleanliness</p>
+            <h1 class="bg-header__title">Bathroom Gallery</h1>
+          </div>
+          <p class="bg-header__desc">Explore our private bathrooms featuring hand-painted floral tiles, high-end brass fixtures, and a commitment to impeccable hygiene.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Tabs -->
+    <section style="padding-top: 0; padding-bottom: 0;">
+      <div class="container">
+        <div class="bg-tabs">
+          <a href="gallery.html" class="bg-tab">All Areas</a>
+          <a href="rooms-gallery.html" class="bg-tab">Rooms</a>
+          <a href="bathroom-gallery.html" class="bg-tab active">Bathroom</a>
+          <a href="#" class="bg-tab">Living Room</a>
+          <a href="#" class="bg-tab">Exterior</a>
+          <a href="#" class="bg-tab">Dining</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3×2 uniform grid -->
+    <section style="padding-top: 8px;">
+      <div class="container">
+        <div class="bg-grid">
+          <div class="bg-grid-item">
+            <img src="assets/images/bathroom-tiles.jpg" alt="Hand-painted floral tiles">
+          </div>
+          <div class="bg-grid-item">
+            <img src="assets/images/bathroom-vanity.jpg" alt="Bathroom vanity">
+          </div>
+          <div class="bg-grid-item">
+            <img src="assets/images/bathroom-main.jpg" alt="Signature fixture">
+          </div>
+          <div class="bg-grid-item">
+            <img src="assets/images/bathroom-faucet.jpg" alt="Brass faucet">
+          </div>
+          <div class="bg-grid-item">
+            <img src="assets/images/bathroom-shower.jpg" alt="Rain shower">
+          </div>
+          <div class="bg-grid-item">
+            <img src="assets/images/bathroom-tub.jpg" alt="Soaking tub with forest view">
+          </div>
+        </div>
+        <div class="bg-spacer"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="stitch-footer">
+    <div class="container">
+      <div class="stitch-footer__grid">
+        <div>
+          <p class="stitch-footer__brand-name">Ashirwad Homestay</p>
+          <p class="stitch-footer__brand-desc">Experience the quiet luxury of the Bhimtal hills in our curated boutique home.</p>
+        </div>
+        <div>
+          <p class="stitch-footer__heading">Quick Links</p>
+          <ul class="stitch-footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="stitch-footer__heading">Contact</p>
+          <div class="stitch-footer__contact-item"><i class="ph ph-map-pin"></i> Bhimtal, Uttarakhand</div>
+          <div class="stitch-footer__contact-item"><i class="ph ph-envelope"></i> hello@ashirwad.com</div>
+          <div class="stitch-footer__contact-item"><i class="ph ph-phone"></i> +91 98765 43210</div>
+        </div>
+        <div>
+          <p class="stitch-footer__heading">Legal</p>
+          <ul class="stitch-footer__links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="stitch-footer__bottom">
+        © 2024 Ashirwad Homestay, Bhimtal.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

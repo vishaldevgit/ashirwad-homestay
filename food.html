@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Cooked Kumaoni Food — Ashirwad Homestay, Bhimtal</title>
+  <meta name="description" content="Order authentic Kumaoni home-cooked food at Ashirwad Homestay, Bhimtal. The same dal, sabzi, roti, chawal the host family cooks daily. Fresh. Simple. Real.">
+  <meta name="keywords" content="kumaoni food bhimtal, home cooked food bhimtal homestay, authentic kumaoni cooking, ashirwad homestay food, kumaoni thali bhimtal, kaapa kumaoni dish, local food bhimtal uttarakhand">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ashirwadhomestay.in/food.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ashirwad Homestay">
+  <meta property="og:url" content="https://ashirwadhomestay.in/food.html">
+  <meta property="og:title" content="Real Kumaoni Home Food — Ashirwad Homestay, Bhimtal">
+  <meta property="og:description" content="Order authentic home-cooked Kumaoni food delivered to your set. No restaurant. No menu. Just real home cooking — the same the family eats every day.">
+  <meta property="og:image" content="https://ashirwadhomestay.in/images/food-thali-kumaoni.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Real Kumaoni Home Food — Ashirwad Homestay, Bhimtal">
+  <meta name="twitter:description" content="Order authentic home-cooked Kumaoni food delivered to your set. No restaurant. No menu. Just real home cooking — the same the family eats every day.">
+  <meta name="twitter:image" content="https://ashirwadhomestay.in/images/food-thali-kumaoni.jpg">
+<link rel="icon" href="images/logo-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/logo-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* ── FOOD PAGE STYLES ── */
+
+    /* Hero */
+    .food-hero {
+      position: relative;
+      height: 58vh;
+      min-height: 400px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .food-hero__bg {
+      position: absolute;
+      inset: 0;
+    }
+    .food-hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .food-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,58,42,0.92) 0%, rgba(26,58,42,0.5) 50%, rgba(26,58,42,0.1) 100%);
+    }
+    .food-hero__content {
+      position: relative;
+      z-index: 2;
+      padding: var(--space-12) var(--space-6);
+      width: 100%;
+      color: white;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .food-hero__content h1 {
+      font-size: clamp(28px, 4.5vw, 52px);
+      color: white;
+      margin: var(--space-3) 0 var(--space-4);
+      max-width: 620px;
+      line-height: 1.2;
+    }
+    .food-hero__content p {
+      color: rgba(255,255,255,0.82);
+      font-size: clamp(14px, 1.8vw, 17px);
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    /* What we serve */
+    .what-we-serve {
+      padding: var(--space-20) 0;
+    }
+    .serve-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+    .serve-photo {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    .serve-photo img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+    .serve-photo .todo-photo-block {
+      width: 100%;
+      height: 380px;
+      background: linear-gradient(135deg, #D97B4A 0%, #C0672F 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: rgba(255,255,255,0.75);
+      font-size: 12px;
+      text-align: center;
+      gap: var(--space-3);
+      padding: var(--space-6);
+    }
+    .serve-photo .todo-photo-block .icon { font-size: 48px; }
+    .serve-text h2 {
+      font-size: clamp(26px, 3.5vw, 40px);
+      margin: var(--space-3) 0 var(--space-5);
+    }
+    .serve-text p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-4);
+    }
+    .serve-text .honest-note {
+      background: var(--color-cream);
+      border-radius: 12px;
+      padding: var(--space-5) var(--space-6);
+      font-style: italic;
+      color: var(--color-forest);
+      font-family: var(--font-display);
+      font-size: 17px;
+      line-height: 1.5;
+      margin-top: var(--space-6);
+    }
+
+    /* Typical meals */
+    .meal-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin: var(--space-5) 0;
+    }
+    .meal-chip {
+      background: var(--color-cream);
+      border: 1px solid var(--color-cream-dark);
+      border-radius: 999px;
+      padding: var(--space-2) var(--space-4);
+      font-size: 14px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .meal-chip span { font-size: 16px; }
+
+    /* Why different */
+    .why-different {
+      background: var(--color-cream);
+      padding: var(--space-20) 0;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+      margin-top: var(--space-10);
+    }
+    .why-card {
+      background: white;
+      border-radius: 16px;
+      padding: var(--space-8) var(--space-7);
+      box-shadow: 0 2px 12px rgba(26,58,42,0.06);
+      border: 1px solid rgba(26,58,42,0.06);
+    }
+    .why-card__emoji {
+      font-size: 40px;
+      margin-bottom: var(--space-4);
+    }
+    .why-card h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      margin-bottom: var(--space-3);
+    }
+    .why-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* How to order */
+    .how-to-order {
+      padding: var(--space-20) 0;
+    }
+    .steps-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: start;
+      margin-top: var(--space-10);
+    }
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+    .step {
+      display: flex;
+      gap: var(--space-5);
+      align-items: flex-start;
+    }
+    .step__num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--color-terracotta);
+      color: white;
+      font-family: var(--font-accent);
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step__content h4 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      margin-bottom: var(--space-2);
+    }
+    .step__content p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .steps-cta-card {
+      background: var(--color-forest);
+      border-radius: 20px;
+      padding: var(--space-10) var(--space-8);
+      text-align: center;
+      position: sticky;
+      top: 100px;
+    }
+    .steps-cta-card .emoji { font-size: 48px; margin-bottom: var(--space-4); }
+    .steps-cta-card h3 {
+      color: white;
+      font-family: var(--font-display);
+      font-size: 22px;
+      margin-bottom: var(--space-4);
+    }
+    .steps-cta-card p {
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: var(--space-6);
+    }
+
+    /* Kitchen gallery strip */
+    .kitchen-gallery {
+      background: var(--color-forest);
+      padding: var(--space-16) 0;
+    }
+    .kitchen-gallery h2 { color: white; }
+    .kitchen-gallery .eyebrow { color: var(--color-marigold); }
+    .kitchen-photos {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: var(--space-3);
+      margin-top: var(--space-8);
+    }
+    .kitchen-photo {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .kitchen-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .kitchen-photo:hover img { transform: scale(1.04); }
+    .kitchen-photo:first-child { height: 280px; }
+    .kitchen-photo:not(:first-child) { height: 280px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .serve-layout { grid-template-columns: 1fr; gap: var(--space-10); }
+      .why-grid { grid-template-columns: 1fr; }
+      .steps-layout { grid-template-columns: 1fr; }
+      .steps-cta-card { position: static; }
+      .kitchen-photos {
+        grid-template-columns: 1fr 1fr;
+      }
+      .kitchen-photo:first-child { grid-column: 1 / -1; height: 220px; }
+      .kitchen-photo:not(:first-child) { height: 180px; }
+    }
+    @media (max-width: 600px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .kitchen-photos { grid-template-columns: 1fr; }
+      .kitchen-photo, .kitchen-photo:first-child { height: 200px; grid-column: auto; }
+    }
+    @media (max-width: 768px) {
+      .kaapa-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+  <script src="firebase-config.js"></script>
+  <script src="offer-bar.js"></script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo"><svg class="site-logo__mountain" viewBox="0 0 44 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M0 30 L15 7 L22 16 L29 3 L44 30 Z"/><path d="M25.5 11 L29 3 L32.5 11 Z" opacity="0.45"/></svg><div class="site-logo__text"><span class="site-logo__name">ASHIRWAD</span><span class="site-logo__sub">Homestay · Bhimtal</span></div></a>
+      <ul class="navbar__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="location.html">Location</a></li>
+        <li><a href="food.html" class="active">Food</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="navbar__cta">
+        <a href="book.html" class="btn btn--primary">Book Now</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html">Home</a>
+    <a href="rooms.html">Rooms</a>
+    <a href="location.html">Location</a>
+    <a href="food.html" class="active">Food</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="amenities.html">Amenities</a>
+    <a href="about.html">About</a>
+    <a href="book.html" class="btn btn--primary" style="margin-top:8px;">Book Now</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="food-hero">
+    <div class="food-hero__bg">
+      <img src="images/food-thali-kumaoni.jpg" alt="A freshly served Kumaoni thali — dal, sabzi, roti, chawal" style="object-position: center 30%;">
+    </div>
+    <div class="food-hero__overlay"></div>
+    <div class="food-hero__content reveal">
+      <p class="eyebrow" style="color: var(--color-marigold);">Home Food on Order</p>
+      <h1 class="font-display">Real Kumaoni Home Food. Not Restaurant Food.</h1>
+      <p>The same food the family cooks every day — fresh, simple, seasonal. Order for any meal. Delivered to your set.</p>
+    </div>
+  </div>
+
+  <!-- WHAT WE SERVE -->
+  <section class="what-we-serve">
+    <div class="container">
+      <div class="serve-layout">
+        <div class="serve-photo reveal">
+          <img src="images/food-thali-brass.png" alt="Traditional Kumaoni thali — dal, sabzi, saag, roti served in brass utensils">
+        </div>
+        <div class="serve-text reveal">
+          <p class="eyebrow">What We Serve</p>
+          <h2 class="font-display">Simple. Fresh. The same food we eat.</h2>
+          <p>There is no menu, no restaurant, and no separate tourist food at Ashirwad. What you order is exactly what the host family cooks for themselves that day — using seasonal vegetables, fresh ingredients, and traditional Kumaoni recipes passed down through generations.</p>
+          <p>Meals change with what's fresh, what's in season, and what's being cooked. That's the point — this is real home food, not a packaged product.</p>
+
+          <div class="meal-chips">
+            <div class="meal-chip"><span>🍲</span> Dal (lentils)</div>
+            <div class="meal-chip"><span>🥬</span> Sabzi (seasonal vegetables)</div>
+            <div class="meal-chip"><span>🫓</span> Roti / Chapati</div>
+            <div class="meal-chip"><span>🍚</span> Chawal (rice)</div>
+            <div class="meal-chip"><span>🥗</span> Raita / Salad</div>
+            <div class="meal-chip"><span>🫙</span> Achaar (pickle)</div>
+            <div class="meal-chip"><span>☕</span> Chai (tea)</div>
+          </div>
+
+          <div class="honest-note">
+            "No menu. No markup. Just the real thing."
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KAAPA SPOTLIGHT -->
+  <section style="background: var(--color-cream); padding: var(--space-12) 0;">
+    <div class="container">
+      <div class="kaapa-grid" style="display:grid; grid-template-columns:1fr 1fr; gap: var(--space-10); align-items:center;">
+        <div class="reveal" style="border-radius:16px; overflow:hidden;">
+          <img src="images/food-kaapa.jpg" alt="Kumaoni Kaapa — spinach lentil curry with rice, a local specialty"
+               style="width:100%; height:300px; object-fit:cover; display:block;">
+        </div>
+        <div class="reveal" style="transition-delay:0.1s;">
+          <p class="eyebrow">Kumaoni Specialty</p>
+          <h2 class="font-display" style="font-size: clamp(24px,3vw,36px); margin: var(--space-3) 0 var(--space-4);">Kaapa — A Dish You Won't Find in a Restaurant</h2>
+          <p style="color: var(--text-secondary); line-height:1.8;">Kaapa is slow-cooked spinach with black lentils — a staple Kumaoni recipe made fresh in every mountain home. Rich, earthy, and deeply satisfying with rice or roti. You won't find the real version in a tourist dhaba.</p>
+          <p style="color: var(--text-secondary); line-height:1.8; margin-top: var(--space-4);">Depending on what the family is cooking that day, you may be treated to Kaapa, Bhaang ki Chutney, Gahat Dal, or other recipes unique to the Kumaon hills.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY DIFFERENT -->
+  <section class="why-different">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <p class="eyebrow">Why It's Different</p>
+        <h2 class="font-display">Not Like Hotel Food. Not Like a Dhaba.</h2>
+        <p style="color: var(--text-secondary); max-width: 520px; margin: var(--space-4) auto 0; line-height: 1.7;">Most travelers in the hills eat mediocre restaurant food or packaged snacks. Ashirwad guests eat what locals eat.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-card__emoji">🌿</div>
+          <h3>Freshly cooked, not reheated</h3>
+          <p>Every meal is cooked fresh when ordered. Nothing is kept in a bain-marie or reheated from the morning. You can taste the difference.</p>
+        </div>
+        <div class="why-card reveal" style="transition-delay:0.08s">
+          <div class="why-card__emoji">🏡</div>
+          <h3>Same food the family eats</h3>
+          <p>There is no separate "guest menu". Whatever the host family is cooking that day — that's what you order. No tourist compromises, no mild flavours to play it safe.</p>
+        </div>
+        <div class="why-card reveal" style="transition-delay:0.16s">
+          <div class="why-card__emoji">🌄</div>
+          <h3>Traditional Kumaoni flavors</h3>
+          <p>Kumaoni home cooking has its own identity — the spices, the preparation, the accompaniments. You won't find this in a restaurant in Bhimtal or Nainital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO ORDER -->
+  <section class="how-to-order">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow">How It Works</p>
+        <h2 class="font-display">Ordering is Simple</h2>
+      </div>
+      <div class="steps-layout">
+        <div class="steps-list reveal">
+          <div class="step">
+            <div class="step__num">1</div>
+            <div class="step__content">
+              <h4>Tell us your meal time</h4>
+              <p>When you check in, or via WhatsApp, let us know which meals you'd like during your stay — breakfast, lunch, or dinner. No complicated process.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__num">2</div>
+            <div class="step__content">
+              <h4>We cook it fresh</h4>
+              <p>Give us at least 45–60 minutes notice. Fresh cooking takes time. We'll let you know when it's ready.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__num">3</div>
+            <div class="step__content">
+              <h4>Delivered to your set</h4>
+              <p>We bring the food to your set — you eat in your own space, in your own time, with your family. No shared dining area, no schedules.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__num">4</div>
+            <div class="step__content">
+              <h4>Pricing on request</h4>
+              <p>Food pricing is fair and discussed when you book. Ask us about meal options via WhatsApp before or during your stay.</p>
+            </div>
+          </div>
+        </div>
+        <div class="steps-cta-card reveal">
+          <div class="emoji">💬</div>
+          <h3 class="font-display">Enquire About Food</h3>
+          <p>Tell us you'd like home-cooked meals and we'll sort the details when you book your stay.</p>
+          <a href="https://wa.me/917906174040?text=Hello!%20I%27m%20interested%20in%20home-cooked%20Kumaoni%20food%20during%20my%20stay%20at%20Ashirwad%20Homestay%2C%20Bhimtal.%20Can%20you%20please%20share%20details%3F" class="btn btn--whatsapp" target="_blank" style="width:100%; justify-content:center; margin-bottom: var(--space-3);">
+            <i class="ph ph-whatsapp-logo"></i> Ask About Food on WhatsApp
+          </a>
+          <a href="tel:+917906174040" class="btn btn--outline" style="width:100%; justify-content:center; color:white; border-color:rgba(255,255,255,0.3);">
+            <i class="ph ph-phone"></i> Call +91 79061 74040
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KITCHEN PHOTOS -->
+  <section class="kitchen-gallery">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow">Our Kitchen</p>
+        <h2 class="font-display">Where It's Made</h2>
+      </div>
+      <div class="kitchen-photos reveal">
+        <div class="kitchen-photo">
+          <img src="images/kitchen-full-wide.jpg" alt="Full blue modular kitchen">
+        </div>
+        <div class="kitchen-photo">
+          <img src="images/kitchen-counter-top.jpg" alt="Kitchen countertop with utensils">
+        </div>
+        <div class="kitchen-photo">
+          <img src="images/kitchen-sink-geyser.jpg" alt="Sink with hot water geyser">
+        </div>
+      </div>
+      <p style="color: rgba(255,255,255,0.5); font-size:13px; text-align:center; margin-top: var(--space-5);">Both sets have a fully equipped kitchen — you can also cook your own meals if you prefer.</p>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="section" style="text-align:center;">
+    <div class="container reveal">
+      <p class="eyebrow">Ready to Book?</p>
+      <h2 class="font-display">Add home food to your stay</h2>
+      <p style="color: var(--text-secondary); max-width: 480px; margin: var(--space-4) auto var(--space-8); line-height: 1.7;">Book your set and mention you'd like home-cooked meals — we'll take care of the rest.</p>
+      <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+        <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal%20and%20I%27m%20also%20interested%20in%20home-cooked%20meals.%20Please%20share%20availability." class="btn btn--primary" target="_blank">
+          <i class="ph ph-whatsapp-logo"></i> Book + Add Home Food
+        </a>
+        <a href="rooms.html" class="btn btn--outline-dark">View Room Details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="ph ph-whatsapp-logo"></i>
+  </a>
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    <div>
+      <div class="bottom-bar__price">₹6,000</div>
+      <div class="bottom-bar__label">per set / per night</div>
+    </div>
+    <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="btn btn--primary" target="_blank">
+      Book Now <i class="ph ph-arrow-right"></i>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo"><img src="images/logo-white.png" alt="Ashirwad Homestay — Bhimtal" style="height:110px;width:auto;"></a>
+          <p class="footer__desc">Two independent 2-BHK sets in Bhimtal, Uttarakhand.<br>150m from Kainchi Dham shuttle parking.</p>
+          <p style="font-size:13px; color: rgba(255,255,255,0.5); margin-top: var(--space-3);">Hosted by Ahin &amp; Divya Pande</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Pages</h4>
+          <ul class="footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms &amp; Rates</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="food.html">Food</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="book.html">Book Now</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <ul class="footer__links">
+            <li><p>Industrial Area, Bhimtal,<br>District Nainital, Uttarakhand</p></li>
+            <li><a href="tel:+917906174040">+91 79061 74040</a></li>
+            <li><a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." target="_blank">WhatsApp Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2026 Ashirwad Homestay. All rights reserved. &nbsp;|&nbsp; ashirwadhomestay.in
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

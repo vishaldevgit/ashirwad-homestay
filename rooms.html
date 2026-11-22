@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms & Rates — Ashirwad Homestay, Bhimtal | ₹6,000/night</title>
+  <meta name="description" content="Two independent 2-BHK sets at Ashirwad Homestay, Bhimtal. Full kitchen, private bathroom, 2 rooms — ₹6,000/night. 150m from Kainchi Dham shuttle parking.">
+  <meta name="keywords" content="homestay bhimtal rooms, 2bhk homestay bhimtal, kainchi dham stay bhimtal, bhimtal accommodation rates, ashirwad homestay rates, bhimtal rooms price, budget 2bhk bhimtal, family homestay bhimtal">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ashirwadhomestay.in/rooms.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ashirwad Homestay">
+  <meta property="og:url" content="https://ashirwadhomestay.in/rooms.html">
+  <meta property="og:title" content="Rooms & Rates — Ashirwad Homestay, Bhimtal | ₹6,000/night">
+  <meta property="og:description" content="Two complete 2-BHK sets with full kitchen & private bathroom. ₹6,000/night. 150m from Kainchi Dham shuttle parking, Bhimtal.">
+  <meta property="og:image" content="https://ashirwadhomestay.in/images/room-double-full.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rooms & Rates — Ashirwad Homestay, Bhimtal | ₹6,000/night">
+  <meta name="twitter:description" content="Two complete 2-BHK sets with full kitchen & private bathroom. ₹6,000/night. 150m from Kainchi Dham shuttle parking, Bhimtal.">
+  <meta name="twitter:image" content="https://ashirwadhomestay.in/images/room-double-full.jpg">
+<link rel="icon" href="images/logo-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/logo-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* ── PAGE-SPECIFIC STYLES ── */
+
+    /* Hero Banner */
+    .rooms-hero {
+      position: relative;
+      height: 56vh;
+      min-height: 380px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .rooms-hero__split {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .rooms-hero__split img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .rooms-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,58,42,0.88) 0%, rgba(26,58,42,0.4) 50%, rgba(26,58,42,0.2) 100%);
+    }
+    .rooms-hero__content {
+      position: relative;
+      z-index: 2;
+      padding: var(--space-12) var(--space-6);
+      text-align: center;
+      width: 100%;
+      color: white;
+    }
+    .rooms-hero__content h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      color: white;
+      margin: var(--space-2) 0 var(--space-4);
+      line-height: 1.15;
+    }
+    .rooms-hero__content p {
+      font-size: clamp(15px, 2vw, 18px);
+      color: rgba(255,255,255,0.82);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* Includes strip */
+    .includes-strip {
+      background: var(--color-cream);
+      border-bottom: 1px solid var(--color-cream-dark);
+    }
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+      padding: var(--space-10) 0;
+    }
+    .include-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--space-3);
+    }
+    .include-item i {
+      font-size: 28px;
+      color: var(--color-teal);
+    }
+    .include-item span {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* Value Banner */
+    .value-banner {
+      background: var(--color-forest);
+      color: white;
+      padding: var(--space-8) 0;
+    }
+    .value-banner__inner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+    .value-banner__stat {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+    }
+    .value-banner__stat .big-num {
+      font-family: var(--font-accent);
+      font-size: 42px;
+      color: var(--color-marigold);
+      line-height: 1;
+    }
+    .value-banner__stat p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.72);
+      margin-top: var(--space-1);
+    }
+    .value-banner__divider {
+      width: 1px;
+      height: 60px;
+      background: rgba(255,255,255,0.18);
+      flex-shrink: 0;
+    }
+    .value-banner__copy {
+      flex: 3;
+      min-width: 260px;
+    }
+    .value-banner__copy .eyebrow {
+      color: var(--color-marigold);
+    }
+    .value-banner__copy h2 {
+      font-size: clamp(18px, 2.5vw, 26px);
+      color: white;
+      margin: var(--space-2) 0 var(--space-3);
+    }
+    .value-banner__copy p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+    }
+
+    /* Set Sections */
+    .set-section {
+      padding: var(--space-20) 0;
+    }
+    .set-section + .set-section {
+      padding-top: 0;
+    }
+    .set-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-6);
+      margin-bottom: var(--space-8);
+      flex-wrap: wrap;
+    }
+    .set-header__left h2 {
+      font-size: clamp(28px, 3.5vw, 42px);
+      margin: var(--space-2) 0 var(--space-3);
+    }
+    .set-header__left p {
+      color: var(--text-secondary);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .set-price-card {
+      background: var(--color-cream);
+      border-radius: 16px;
+      padding: var(--space-6) var(--space-8);
+      text-align: center;
+      min-width: 200px;
+      border: 2px solid var(--color-cream-dark);
+      flex-shrink: 0;
+    }
+    .set-price-card .price-amount {
+      font-family: var(--font-accent);
+      font-size: 48px;
+      color: var(--color-forest);
+      line-height: 1;
+    }
+    .set-price-card .price-label {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: var(--space-1);
+    }
+    .set-price-card .price-peak {
+      font-size: 13px;
+      color: var(--color-terracotta);
+      margin-top: var(--space-2);
+      font-weight: 500;
+    }
+
+    /* Main photo */
+    .set-main-photo {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 420px;
+      margin-bottom: var(--space-4);
+    }
+    .set-main-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Sub gallery */
+    .set-sub-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+    .set-sub-gallery__item {
+      border-radius: 10px;
+      overflow: hidden;
+      height: 120px;
+      cursor: pointer;
+    }
+    .set-sub-gallery__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .set-sub-gallery__item:hover img {
+      transform: scale(1.06);
+    }
+
+    /* Room detail grid */
+    .room-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+    .room-detail-card {
+      background: var(--color-cream);
+      border-radius: 12px;
+      padding: var(--space-5) var(--space-6);
+    }
+    .room-detail-card__icon {
+      font-size: 24px;
+      color: var(--color-teal);
+      margin-bottom: var(--space-3);
+    }
+    .room-detail-card h4 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      margin-bottom: var(--space-2);
+    }
+    .room-detail-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .room-detail-card ul li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 2px 0;
+    }
+    .room-detail-card ul li::before {
+      content: "· ";
+      color: var(--color-terracotta);
+    }
+
+    /* CTA row for set */
+    .set-cta-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .capacity-note {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .capacity-note i {
+      color: var(--color-teal);
+    }
+
+    /* Set divider */
+    .set-divider {
+      height: 1px;
+      background: var(--color-cream-dark);
+      margin: 0 0 var(--space-20);
+    }
+
+    /* Group booking */
+    .group-booking {
+      background: var(--color-forest);
+      border-radius: 20px;
+      padding: var(--space-12) var(--space-10);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-8);
+      align-items: center;
+      margin: 0 0 var(--space-16);
+      position: relative;
+      overflow: hidden;
+    }
+    .group-booking::before {
+      content: "";
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .group-booking .eyebrow {
+      color: var(--color-marigold);
+    }
+    .group-booking h2 {
+      color: white;
+      font-size: clamp(22px, 3vw, 34px);
+      margin: var(--space-2) 0 var(--space-4);
+    }
+    .group-booking p {
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    .group-booking__price {
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .group-booking__price .big {
+      font-family: var(--font-accent);
+      font-size: 56px;
+      color: var(--color-marigold);
+      line-height: 1;
+    }
+    .group-booking__price .lbl {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      margin-top: var(--space-1);
+    }
+    .group-booking__price .save-badge {
+      display: inline-block;
+      background: var(--color-terracotta);
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-top: var(--space-2);
+    }
+
+    /* Day use strip */
+    .day-use-strip {
+      background: var(--color-cream);
+      border: 1px solid var(--color-cream-dark);
+      border-radius: 16px;
+      padding: var(--space-8) var(--space-10);
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+      margin-bottom: var(--space-16);
+      flex-wrap: wrap;
+    }
+    .day-use-strip i {
+      font-size: 40px;
+      color: var(--color-terracotta);
+      flex-shrink: 0;
+    }
+    .day-use-strip__text {
+      flex: 1;
+      min-width: 220px;
+    }
+    .day-use-strip__text h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      margin-bottom: var(--space-2);
+    }
+    .day-use-strip__text p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .day-use-strip__price {
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .day-use-strip__price .price {
+      font-family: var(--font-accent);
+      font-size: 40px;
+      color: var(--color-forest);
+    }
+    .day-use-strip__price .label {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* Food add-on */
+    .food-addon {
+      background: linear-gradient(135deg, #FFF8EF 0%, var(--color-cream) 100%);
+      border-radius: 16px;
+      padding: var(--space-10);
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+      margin-bottom: var(--space-16);
+      border: 1px solid rgba(217,123,74,0.18);
+      flex-wrap: wrap;
+    }
+    .food-addon__icon {
+      font-size: 48px;
+      flex-shrink: 0;
+    }
+    .food-addon__text {
+      flex: 1;
+      min-width: 200px;
+    }
+    .food-addon__text h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      margin-bottom: var(--space-2);
+    }
+    .food-addon__text p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* Discount note */
+    .discount-note {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(46,125,138,0.08);
+      border: 1px solid rgba(46,125,138,0.2);
+      border-radius: 999px;
+      padding: var(--space-2) var(--space-4);
+      font-size: 13px;
+      color: var(--color-teal);
+      font-weight: 500;
+      margin-top: var(--space-3);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .rooms-hero__split {
+        grid-template-columns: 1fr;
+      }
+      .rooms-hero__split img:first-child {
+        display: none;
+      }
+      .includes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-5);
+      }
+      .value-banner__divider { display: none; }
+      .value-banner__stat { min-width: 120px; }
+      .room-detail-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .set-sub-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .set-sub-gallery__item { height: 110px; }
+      .group-booking {
+        grid-template-columns: 1fr;
+        padding: var(--space-8) var(--space-6);
+      }
+      .group-booking__price .big { font-size: 44px; }
+      .day-use-strip { flex-direction: column; text-align: center; }
+      .food-addon { flex-direction: column; text-align: center; }
+      .set-header { flex-direction: column; }
+      .set-price-card { align-self: stretch; }
+    }
+    @media (max-width: 480px) {
+      .room-detail-grid { grid-template-columns: 1fr; }
+      .includes-grid { grid-template-columns: repeat(2, 1fr); }
+      .set-main-photo { height: 260px; }
+    }
+  </style>
+  <script src="firebase-config.js"></script>
+  <script src="offer-bar.js"></script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo"><svg class="site-logo__mountain" viewBox="0 0 44 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M0 30 L15 7 L22 16 L29 3 L44 30 Z"/><path d="M25.5 11 L29 3 L32.5 11 Z" opacity="0.45"/></svg><div class="site-logo__text"><span class="site-logo__name">ASHIRWAD</span><span class="site-logo__sub">Homestay · Bhimtal</span></div></a>
+      <ul class="navbar__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rooms.html" class="active">Rooms</a></li>
+        <li><a href="location.html">Location</a></li>
+        <li><a href="food.html">Food</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="navbar__cta">
+        <a href="book.html" class="btn btn--primary">Book Now</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html">Home</a>
+    <a href="rooms.html" class="active">Rooms</a>
+    <a href="location.html">Location</a>
+    <a href="food.html">Food</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="amenities.html">Amenities</a>
+    <a href="about.html">About</a>
+    <a href="book.html" class="btn btn--primary" style="margin-top:8px;">Book Now</a>
+  </div>
+
+  <!-- HERO BANNER -->
+  <div class="rooms-hero">
+    <div class="rooms-hero__split">
+      <img src="images/room-double-full.jpg" alt="Double bedroom — Set A">
+      <img src="images/room-twin-full.jpg" alt="Twin bedroom — Set B">
+    </div>
+    <div class="rooms-hero__overlay"></div>
+    <div class="rooms-hero__content reveal">
+      <p class="eyebrow" style="color: var(--color-marigold);">Rooms &amp; Rates</p>
+      <h1 class="font-display">Two Complete 2-BHK Homestay Sets</h1>
+      <p>Each set is fully independent — private kitchen, private bathroom, two bedrooms</p>
+    </div>
+  </div>
+
+  <!-- WHAT'S INCLUDED -->
+  <div class="includes-strip">
+    <div class="container">
+      <div class="includes-grid">
+        <div class="include-item reveal">
+          <i class="ph-duotone ph-bed"></i>
+          <span>Double Room<br>+ Twin Room</span>
+        </div>
+        <div class="include-item reveal" style="transition-delay:0.08s">
+          <i class="ph-duotone ph-cooking-pot"></i>
+          <span>Fully Equipped<br>Private Kitchen</span>
+        </div>
+        <div class="include-item reveal" style="transition-delay:0.16s">
+          <i class="ph-duotone ph-shower"></i>
+          <span>Private Attached<br>Bathroom</span>
+        </div>
+        <div class="include-item reveal" style="transition-delay:0.24s">
+          <i class="ph-duotone ph-television-simple"></i>
+          <span>TV in<br>Both Rooms</span>
+        </div>
+        <div class="include-item reveal" style="transition-delay:0.32s">
+          <i class="ph-duotone ph-wifi-high"></i>
+          <span>Free<br>WiFi</span>
+        </div>
+        <div class="include-item reveal" style="transition-delay:0.4s">
+          <i class="ph-duotone ph-car"></i>
+          <span>Free<br>Parking</span>
+        </div>
+        <div class="include-item reveal" style="transition-delay:0.48s">
+          <i class="ph-duotone ph-armchair"></i>
+          <span>Covered<br>Veranda</span>
+        </div>
+        <div class="include-item reveal" style="transition-delay:0.56s">
+          <i class="ph-duotone ph-fire-simple"></i>
+          <span>Hot Water<br>Geyser</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUE BANNER -->
+  <div class="value-banner">
+    <div class="container">
+      <div class="value-banner__inner reveal">
+        <div class="value-banner__stat">
+          <div class="big-num">₹1,300</div>
+          <p>A single hotel room in Bhimtal starts here — and goes up to ₹2,500 in peak season</p>
+        </div>
+        <div class="value-banner__divider"></div>
+        <div class="value-banner__stat">
+          <div class="big-num">₹6,000</div>
+          <p>Full 2-BHK at Ashirwad — 2 rooms + kitchen + bathroom for a family of 4</p>
+        </div>
+        <div class="value-banner__divider"></div>
+        <div class="value-banner__copy">
+          <p class="eyebrow">The Smart Choice</p>
+          <h2>₹1,500 per person per night</h2>
+          <p>For a family of 4, Ashirwad works out to just ₹1,500–₹1,625 per person — with your own kitchen, your own bathroom, and the whole set to yourselves. No shared corridors. No hotel noise.</p>
+          <span class="discount-note"><i class="ph ph-tag"></i> 10% off for stays of 3 nights or more</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SET A -->
+  <section class="set-section">
+    <div class="container">
+      <div class="set-header reveal">
+        <div class="set-header__left">
+          <p class="eyebrow">Set A — First Floor</p>
+          <h2 class="font-display">Complete 2-BHK Set</h2>
+          <p>A warm, fully furnished set with a double bedroom, twin bedroom, sitting hall, fully equipped kitchen, and private attached bathroom. Perfect for families of 2–4.</p>
+          <span class="discount-note"><i class="ph ph-users"></i> Ideal for 2–4 guests</span>
+        </div>
+        <div class="set-price-card">
+          <div class="price-amount">₹6,000</div>
+          <div class="price-label">per night (weekday)</div>
+          <div class="price-peak">₹6,500 weekend &amp; peak</div>
+          <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Set%20A%20at%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="btn btn--primary" target="_blank" style="width:100%; margin-top: var(--space-4); justify-content: center;">
+            <i class="ph ph-whatsapp-logo"></i> Book Set A
+          </a>
+        </div>
+      </div>
+
+      <div class="set-main-photo reveal">
+        <img src="images/room-double-full.jpg" alt="Set A — Double bedroom with wardrobe and chairs">
+      </div>
+
+      <div class="set-sub-gallery reveal">
+        <div class="set-sub-gallery__item">
+          <img src="images/room-double-tv.jpg" alt="Double room TV angle">
+        </div>
+        <div class="set-sub-gallery__item">
+          <img src="images/room-twin-full.jpg" alt="Twin bedroom">
+        </div>
+        <div class="set-sub-gallery__item">
+          <img src="images/kitchen-full-wide.jpg" alt="Full kitchen">
+        </div>
+        <div class="set-sub-gallery__item">
+          <img src="images/bath-fancy-vanity.jpg" alt="Bathroom with dandelion tiles">
+        </div>
+      </div>
+
+      <div class="room-detail-grid reveal">
+        <div class="room-detail-card">
+          <div class="room-detail-card__icon"><i class="ph-duotone ph-bed-double"></i></div>
+          <h4>Double Bedroom</h4>
+          <ul>
+            <li>King-size double bed</li>
+            <li>Wardrobe with storage</li>
+            <li>Flat-screen TV</li>
+            <li>2 chairs + side table</li>
+            <li>Fresh linens provided</li>
+          </ul>
+        </div>
+        <div class="room-detail-card">
+          <div class="room-detail-card__icon"><i class="ph-duotone ph-bed"></i></div>
+          <h4>Twin Bedroom</h4>
+          <ul>
+            <li>Two single beds</li>
+            <li>Wardrobe storage</li>
+            <li>Flat-screen TV</li>
+            <li>Window with natural light</li>
+            <li>Fresh linens provided</li>
+          </ul>
+        </div>
+        <div class="room-detail-card">
+          <div class="room-detail-card__icon"><i class="ph-duotone ph-cooking-pot"></i></div>
+          <h4>Full Kitchen</h4>
+          <ul>
+            <li>Induction cooktop</li>
+            <li>Electric kettle</li>
+            <li>Pressure cooker + pans</li>
+            <li>Full crockery set</li>
+            <li>Sink with hot water geyser</li>
+          </ul>
+        </div>
+        <div class="room-detail-card">
+          <div class="room-detail-card__icon"><i class="ph-duotone ph-shower"></i></div>
+          <h4>Private Bathroom</h4>
+          <ul>
+            <li>Western toilet</li>
+            <li>Hot water geyser</li>
+            <li>Shower</li>
+            <li>Vanity mirror + basin</li>
+          </ul>
+        </div>
+        <div class="room-detail-card">
+          <div class="room-detail-card__icon"><i class="ph-duotone ph-armchair"></i></div>
+          <h4>Hall &amp; Common</h4>
+          <ul>
+            <li>Sitting area with chairs</li>
+            <li>Covered veranda access</li>
+            <li>Garden views</li>
+          </ul>
+        </div>
+        <div class="room-detail-card">
+          <div class="room-detail-card__icon"><i class="ph-duotone ph-wifi-high"></i></div>
+          <h4>Facilities</h4>
+          <ul>
+            <li>Free high-speed WiFi</li>
+            <li>Free parking in compound</li>
+            <li>24hr host on premises</li>
+            <li>Home food on order</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="set-cta-row reveal">
+        <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Set%20A%20at%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="btn btn--primary" target="_blank">
+          <i class="ph ph-whatsapp-logo"></i> Book Set A on WhatsApp
+        </a>
+        <a href="gallery.html" class="btn btn--outline-dark">View More Photos</a>
+        <span class="capacity-note"><i class="ph ph-users"></i> Ideal for 2–4 guests</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="set-divider"></div>
+
+  <!-- SET B -->
+  <section class="set-section">
+    <div class="container">
+      <div class="set-header reveal">
+        <div class="set-header__left">
+          <p class="eyebrow">Set B — Ground Floor</p>
+          <h2 class="font-display">Complete 2-BHK Set</h2>
+          <p>Identical in layout and comfort — a double bedroom, twin bedroom, sitting hall, fully equipped kitchen, and private attached bathroom. Book individually or alongside Set A for larger groups.</p>
+          <span class="discount-note"><i class="ph ph-users"></i> Ideal for 2–4 guests</span>
+        </div>
+        <div class="set-price-card">
+          <div class="price-amount">₹6,000</div>
+          <div class="price-label">per night (weekday)</div>
+          <div class="price-peak">₹6,500 weekend &amp; peak</div>
+          <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Set%20B%20at%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="btn btn--primary" target="_blank" style="width:100%; margin-top: var(--space-4); justify-content: center;">
+            <i class="ph ph-whatsapp-logo"></i> Book Set B
+          </a>
+        </div>
+      </div>
+
+      <div class="set-main-photo reveal">
+        <img src="images/room-twin-full.jpg" alt="Set B — Twin bedroom with curtains">
+      </div>
+
+      <div class="set-sub-gallery reveal">
+        <div class="set-sub-gallery__item">
+          <img src="images/room-twin-angle.jpg" alt="Twin room angle view">
+        </div>
+        <div class="set-sub-gallery__item">
+          <img src="images/room-double-bed.jpg" alt="Double bed close-up">
+        </div>
+        <div class="set-sub-gallery__item">
+          <img src="images/kitchen-counter-top.jpg" alt="Kitchen countertop">
+        </div>
+        <div class="set-sub-gallery__item">
+          <img src="images/bath-classic-full.jpg" alt="Bathroom with Moroccan tiles">
+        </div>
+      </div>
+
+      <div class="room-detail-grid reveal">
+        <div class="room-detail-card">
+          <div class="room-detail-card__icon"><i class="ph-duotone ph-bed-double"></i></div>
+          <h4>Double Bedroom</h4>
+          <ul>
+            <li>King-size double bed</li>
+            <li>Wardrobe with storage</li>
+            <li>Flat-screen TV</li>
+            <li>2 chairs + side table</li>
+            <li>Fresh linens provided</li>
+          </ul>
+        </div>
+        <div class="room-detail-card">
+          <div class="room-detail-card__icon"><i class="ph-duotone ph-bed"></i></div>
+          <h4>Twin Bedroom</h4>
+          <ul>
+            <li>Two single beds</li>
+            <li>Wardrobe storage</li>
+            <li>Flat-screen TV</li>
+            <li>Window with natural light</li>
+            <li>Fresh linens provided</li>
+          </ul>
+        </div>
+        <div class="room-detail-card">
+          <div class="room-detail-card__icon"><i class="ph-duotone ph-cooking-pot"></i></div>
+          <h4>Full Kitchen</h4>
+          <ul>
+            <li>Induction cooktop</li>
+            <li>Electric kettle</li>
+            <li>Pressure cooker + pans</li>
+            <li>Full crockery set</li>
+            <li>Sink with hot water geyser</li>
+          </ul>
+        </div>
+        <div class="room-detail-card">
+          <div class="room-detail-card__icon"><i class="ph-duotone ph-shower"></i></div>
+          <h4>Private Bathroom</h4>
+          <ul>
+            <li>Western toilet</li>
+            <li>Hot water geyser</li>
+            <li>Shower</li>
+            <li>Vanity mirror + basin</li>
+          </ul>
+        </div>
+        <div class="room-detail-card">
+          <div class="room-detail-card__icon"><i class="ph-duotone ph-armchair"></i></div>
+          <h4>Hall &amp; Common</h4>
+          <ul>
+            <li>Sitting area with chairs</li>
+            <li>Covered veranda access</li>
+            <li>Garden views</li>
+          </ul>
+        </div>
+        <div class="room-detail-card">
+          <div class="room-detail-card__icon"><i class="ph-duotone ph-wifi-high"></i></div>
+          <h4>Facilities</h4>
+          <ul>
+            <li>Free high-speed WiFi</li>
+            <li>Free parking in compound</li>
+            <li>24hr host on premises</li>
+            <li>Home food on order</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="set-cta-row reveal">
+        <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Set%20B%20at%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="btn btn--primary" target="_blank">
+          <i class="ph ph-whatsapp-logo"></i> Book Set B on WhatsApp
+        </a>
+        <a href="gallery.html" class="btn btn--outline-dark">View More Photos</a>
+        <span class="capacity-note"><i class="ph ph-users"></i> Ideal for 2–4 guests</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROUP BOOKING -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="group-booking reveal">
+        <div>
+          <p class="eyebrow">Large Groups &amp; Families</p>
+          <h2 class="font-display">Book Both Sets Together</h2>
+          <p>Travelling as a large family or group? Book both Set A and Set B together — two full kitchens, two bathrooms, four bedrooms, and the entire compound to yourselves. Perfect for family gatherings, group pilgrimages, or reunions up to 8–10 guests.</p>
+          <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-6);">
+            <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20enquire%20about%20booking%20both%20sets%20(A%20%26%20B)%20at%20Ashirwad%20Homestay%2C%20Bhimtal%20for%20a%20group." class="btn btn--whatsapp" target="_blank">
+              <i class="ph ph-whatsapp-logo"></i> Enquire for Group Booking
+            </a>
+          </div>
+          <p style="font-size:12px; color: rgba(255,255,255,0.5); margin-top: var(--space-4);">Save ₹500–₹1,000 vs booking both sets separately at peak rates</p>
+        </div>
+        <div class="group-booking__price">
+          <div class="big">₹11,000</div>
+          <div class="lbl">both sets / per night</div>
+          <div class="save-badge">Save ₹500</div>
+          <div class="lbl" style="margin-top: var(--space-3);">Up to 8–10 guests</div>
+        </div>
+      </div>
+
+      <!-- PILGRIM DAY-USE -->
+      <div class="day-use-strip reveal">
+        <i class="ph-duotone ph-bus"></i>
+        <div class="day-use-strip__text">
+          <h3>Pilgrim Day-Use Package</h3>
+          <p>Coming for Kainchi Dham darshan and don't need an overnight stay? Use our facilities from 6 AM to 8 PM — freshen up, store luggage safely, rest between your morning and evening shuttle, and leave refreshed.</p>
+          <p style="margin-top: var(--space-2);">Includes: bathroom access, luggage storage, hall seating, drinking water.</p>
+        </div>
+        <div class="day-use-strip__price">
+          <div class="price">₹700</div>
+          <div class="label">per day (6 AM – 8 PM)</div>
+          <a href="https://wa.me/917906174040?text=Hello!%20I%27m%20visiting%20Kainchi%20Dham%20and%20would%20like%20to%20enquire%20about%20the%20Pilgrim%20Day-Use%20package%20at%20Ashirwad%20Homestay." class="btn btn--primary" target="_blank" style="margin-top: var(--space-4);">
+            <i class="ph ph-whatsapp-logo"></i> Enquire
+          </a>
+        </div>
+      </div>
+
+      <!-- FOOD ADD-ON -->
+      <div class="food-addon reveal">
+        <div class="food-addon__icon">🍛</div>
+        <div class="food-addon__text">
+          <p class="eyebrow" style="color: var(--color-terracotta);">Add to your stay</p>
+          <h3>Real Kumaoni Home Food — On Order</h3>
+          <p>The same fresh, simple food the family cooks every day — dal, sabzi, roti, chawal, seasonal vegetables. No restaurant markup, no tourist menu. Just real home cooking delivered to your set. Order for any meal — give us 45–60 minutes notice.</p>
+        </div>
+        <a href="food.html" class="btn btn--outline-dark" style="flex-shrink:0;">Learn More →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="ph ph-whatsapp-logo"></i>
+  </a>
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    <div>
+      <div class="bottom-bar__price">₹6,000</div>
+      <div class="bottom-bar__label">per set / per night</div>
+    </div>
+    <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="btn btn--primary" target="_blank">
+      Book Now <i class="ph ph-arrow-right"></i>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo"><img src="images/logo-white.png" alt="Ashirwad Homestay — Bhimtal" style="height:110px;width:auto;"></a>
+          <p class="footer__desc">Two independent 2-BHK sets in Bhimtal, Uttarakhand.<br>150m from Kainchi Dham shuttle parking.</p>
+          <p style="font-size:13px; color: rgba(255,255,255,0.5); margin-top: var(--space-3);">Hosted by Ahin &amp; Divya Pande</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Pages</h4>
+          <ul class="footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms &amp; Rates</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="food.html">Food</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="book.html">Book Now</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <ul class="footer__links">
+            <li><p>Industrial Area, Bhimtal,<br>District Nainital, Uttarakhand</p></li>
+            <li><a href="tel:+917906174040">+91 79061 74040</a></li>
+            <li><a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." target="_blank">WhatsApp Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2026 Ashirwad Homestay. All rights reserved. &nbsp;|&nbsp; ashirwadhomestay.in
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

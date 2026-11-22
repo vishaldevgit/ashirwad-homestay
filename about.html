@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — Ashirwad Homestay, Bhimtal | Hosted by Ahin & Divya Pande</title>
+  <meta name="description" content="Ashirwad Homestay in Bhimtal is hosted by Ahin and Divya Pande. Two 2-BHK sets, 150m from Kainchi Dham shuttle parking, gateway to the 7 Taals of Kumaon.">
+  <meta name="keywords" content="ashirwad homestay bhimtal, ahin pande divya pande bhimtal, kumaoni homestay hosts, bhimtal homestay family, authentic bhimtal stay, kainchi dham nearby homestay">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ashirwadhomestay.in/about.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ashirwad Homestay">
+  <meta property="og:url" content="https://ashirwadhomestay.in/about.html">
+  <meta property="og:title" content="About Ashirwad Homestay — Hosted by Ahin & Divya Pande, Bhimtal">
+  <meta property="og:description" content="A family-run homestay in Bhimtal, Uttarakhand. 150m from Kainchi Dham shuttle parking. Real Kumaoni hospitality — two 2-BHK sets, home food, mountain peace.">
+  <meta property="og:image" content="https://ashirwadhomestay.in/images/ext-front-day-1.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Ashirwad Homestay — Hosted by Ahin & Divya Pande, Bhimtal">
+  <meta name="twitter:description" content="A family-run homestay in Bhimtal, Uttarakhand. 150m from Kainchi Dham shuttle parking. Real Kumaoni hospitality — two 2-BHK sets, home food, mountain peace.">
+  <meta name="twitter:image" content="https://ashirwadhomestay.in/images/ext-front-day-1.jpg">
+<link rel="icon" href="images/logo-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/logo-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* Hero banner */
+    .about-hero {
+      position: relative;
+      height: 50vh;
+      min-height: 360px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .about-hero__bg {
+      position: absolute;
+      inset: 0;
+    }
+    .about-hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,58,42,0.9) 0%, rgba(26,58,42,0.45) 60%, rgba(26,58,42,0.15) 100%);
+    }
+    .about-hero__content {
+      position: relative;
+      z-index: 2;
+      padding: var(--space-10) var(--space-6);
+      width: 100%;
+      color: white;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .about-hero__content h1 {
+      font-size: clamp(28px, 4vw, 48px);
+      color: white;
+      margin: var(--space-2) 0 var(--space-3);
+    }
+    .about-hero__content p {
+      color: rgba(255,255,255,0.8);
+      max-width: 500px;
+    }
+
+    /* Story section */
+    .story-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: start;
+    }
+    .story-text p {
+      color: var(--text-secondary);
+      line-height: 1.85;
+      margin-bottom: var(--space-5);
+    }
+    .story-text h2 {
+      font-size: clamp(26px, 3vw, 38px);
+      margin: var(--space-3) 0 var(--space-6);
+    }
+    .host-photo {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    .host-photo .todo-photo-block {
+      width: 100%;
+      height: 420px;
+      background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream-dark) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      color: var(--text-muted);
+      font-size: 13px;
+      text-align: center;
+      border-radius: 20px;
+      border: 2px dashed var(--color-cream-dark);
+      padding: var(--space-8);
+    }
+    .host-photo .todo-photo-block .icon { font-size: 52px; color: var(--color-cream-dark); }
+    .host-caption {
+      text-align: center;
+      margin-top: var(--space-4);
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--text-primary);
+    }
+    .host-caption span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-5);
+      margin: var(--space-16) 0;
+    }
+    .stat-card {
+      background: var(--color-cream);
+      border-radius: 14px;
+      padding: var(--space-7) var(--space-6);
+      text-align: center;
+    }
+    .stat-card .num {
+      font-family: var(--font-accent);
+      font-size: 44px;
+      color: var(--color-forest);
+      line-height: 1;
+    }
+    .stat-card .lbl {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-top: var(--space-2);
+    }
+
+    /* Promise section */
+    .promise-section {
+      background: var(--color-forest);
+      padding: var(--space-20) 0;
+    }
+    .promise-section h2 { color: white; }
+    .promise-section .eyebrow { color: var(--color-marigold); }
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-5);
+      margin-top: var(--space-10);
+    }
+    .promise-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: var(--space-7) var(--space-7);
+      display: flex;
+      gap: var(--space-5);
+      align-items: flex-start;
+    }
+    .promise-card i {
+      font-size: 28px;
+      color: var(--color-marigold);
+      flex-shrink: 0;
+    }
+    .promise-card h4 {
+      color: white;
+      font-family: var(--font-display);
+      font-size: 18px;
+      margin-bottom: var(--space-2);
+    }
+    .promise-card p {
+      color: rgba(255,255,255,0.65);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    /* Property section */
+    .property-section {
+      padding: var(--space-20) 0;
+      background: var(--color-cream);
+    }
+    .property-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-10);
+      margin-top: var(--space-10);
+    }
+    .property-photo {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 300px;
+    }
+    .property-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .story-layout { grid-template-columns: 1fr; gap: var(--space-10); }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .promise-grid { grid-template-columns: 1fr; }
+      .property-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .stats-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+  <script src="firebase-config.js"></script>
+  <script src="offer-bar.js"></script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo"><svg class="site-logo__mountain" viewBox="0 0 44 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M0 30 L15 7 L22 16 L29 3 L44 30 Z"/><path d="M25.5 11 L29 3 L32.5 11 Z" opacity="0.45"/></svg><div class="site-logo__text"><span class="site-logo__name">ASHIRWAD</span><span class="site-logo__sub">Homestay · Bhimtal</span></div></a>
+      <ul class="navbar__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="location.html">Location</a></li>
+        <li><a href="food.html">Food</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+      </ul>
+      <div class="navbar__cta">
+        <a href="book.html" class="btn btn--primary">Book Now</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html">Home</a>
+    <a href="rooms.html">Rooms</a>
+    <a href="location.html">Location</a>
+    <a href="food.html">Food</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="amenities.html">Amenities</a>
+    <a href="about.html" class="active">About</a>
+    <a href="book.html" class="btn btn--primary" style="margin-top:8px;">Book Now</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="about-hero">
+    <div class="about-hero__bg">
+      <img src="images/ext-front-day-1.jpg" alt="Ashirwad Homestay — front of property in daylight">
+    </div>
+    <div class="about-hero__overlay"></div>
+    <div class="about-hero__content reveal">
+      <p class="eyebrow" style="color: var(--color-marigold);">Our Story</p>
+      <h1 class="font-display">About Ashirwad Homestay</h1>
+      <p>A family home in the hills of Bhimtal — opened to share the peace, the mountains, and real Kumaoni hospitality.</p>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section class="section">
+    <div class="container">
+      <div class="story-layout">
+        <div class="story-text reveal">
+          <p class="eyebrow">Our Story</p>
+          <h2 class="font-display">A Home in the Hills, Opened to Guests</h2>
+          <p>Ashirwad Homestay started simply — the Pande family had two full 2-BHK sets in their Bhimtal property, and after welcoming a few guests informally, they decided to open it properly. The name "Ashirwad" — meaning divine blessing — reflects the spirit the family brings to every stay.</p>
+          <p>Ahin and Divya Pande are your hosts. They live on the premises, are available 24 hours, and genuinely enjoy hosting guests who come seeking the peace and beauty of Bhimtal — whether they're here for Kainchi Dham darshan, the 7 Taals, or simply to escape city life for a few days.</p>
+          <p>This is not a hotel managed by staff. The hosts are present, personal, and invested in making sure you have a comfortable, authentic stay.</p>
+          <div style="display: flex; gap: var(--space-3); margin-top: var(--space-6); flex-wrap: wrap;">
+            <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="btn btn--primary" target="_blank">
+              <i class="ph ph-whatsapp-logo"></i> Talk to Ahin or Divya
+            </a>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="host-photo">
+            <img src="images/about-hosts-pande-family.jpg"
+                 alt="Ahin and Divya Pande with family — your hosts at Ashirwad Homestay, Bhimtal"
+                 style="width:100%; height:460px; object-fit:cover; object-position:center 32%; display:block; border-radius:20px;">
+          </div>
+          <div class="host-caption">
+            Ahin &amp; Divya Pande
+            <span>Your Hosts at Ashirwad Homestay, Bhimtal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-row reveal">
+        <div class="stat-card">
+          <div class="num">2</div>
+          <div class="lbl">Independent<br>2-BHK Sets</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">8</div>
+          <div class="lbl">Max Guests<br>(Both Sets)</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">150M</div>
+          <div class="lbl">To Kainchi Dham<br>Shuttle Parking</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">7</div>
+          <div class="lbl">Lakes Within<br>22 KM</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISE -->
+  <!-- BRAND MARK -->
+  <section style="background: var(--color-cream); padding: var(--space-16) 0; text-align:center; border-bottom: 1px solid var(--border-light);">
+    <div class="container">
+      <img src="images/logo-illustrated.png"
+           alt="Ashirwad Homestay — Official Logo"
+           class="reveal"
+           style="height:200px; width:auto; margin:0 auto; display:block;">
+      <p class="reveal" style="margin-top: var(--space-4); color: var(--text-secondary); font-size: var(--text-sm); letter-spacing: 0.08em; text-transform: uppercase; transition-delay: 0.1s;">Established in Bhimtal, Uttarakhand</p>
+    </div>
+  </section>
+
+  <section class="promise-section">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow">Our Promise</p>
+        <h2 class="font-display">What We Guarantee Every Guest</h2>
+      </div>
+      <div class="promise-grid">
+        <div class="promise-card reveal">
+          <i class="ph-duotone ph-check-circle"></i>
+          <div>
+            <h4>Clean and Well-Maintained</h4>
+            <p>Both sets are cleaned thoroughly between guests. Fresh linens, clean kitchen, tidy bathrooms — every time, without exception.</p>
+          </div>
+        </div>
+        <div class="promise-card reveal" style="transition-delay:0.08s">
+          <i class="ph-duotone ph-heart"></i>
+          <div>
+            <h4>Genuine Warmth</h4>
+            <p>We treat guests the way we'd want to be treated as guests ourselves. No false formality — just honest, straightforward hospitality.</p>
+          </div>
+        </div>
+        <div class="promise-card reveal" style="transition-delay:0.16s">
+          <i class="ph-duotone ph-lock-simple"></i>
+          <div>
+            <h4>Privacy and Independence</h4>
+            <p>Your set is yours. You have your own entrance, your own kitchen, your own bathroom. No shared spaces with strangers.</p>
+          </div>
+        </div>
+        <div class="promise-card reveal" style="transition-delay:0.24s">
+          <i class="ph-duotone ph-clock"></i>
+          <div>
+            <h4>Available 24 Hours</h4>
+            <p>Whether you arrive late after a long drive from Delhi or need something early morning before the shuttle, the hosts are always reachable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTY -->
+  <section class="property-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <p class="eyebrow">The Property</p>
+        <h2 class="font-display">A Real Home in Bhimtal</h2>
+        <p style="color: var(--text-secondary); max-width: 520px; margin: var(--space-4) auto 0; line-height: 1.7;">Set in a green compound in the Industrial Area of Bhimtal, just 150 metres from the Kainchi Dham shuttle parking. The property has a garden, a covered veranda, and two full 2-BHK sets across two floors.</p>
+      </div>
+      <div class="property-layout reveal">
+        <div class="property-photo">
+          <img src="images/ext-compound-garden.jpg" alt="Garden and compound pathway">
+        </div>
+        <div class="property-photo">
+          <img src="images/ext-veranda-4chairs.jpg" alt="Covered veranda with chairs">
+        </div>
+        <div class="property-photo">
+          <img src="images/ext-garden-roses.jpg" alt="Rose wall in the garden">
+        </div>
+        <div class="property-photo">
+          <img src="images/ext-front-day-2.jpg" alt="Ashirwad Homestay signboard">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK CTA -->
+  <section class="section" style="text-align:center;">
+    <div class="container reveal">
+      <p class="eyebrow">Come Stay</p>
+      <h2 class="font-display">We'd Love to Host You</h2>
+      <p style="color: var(--text-secondary); max-width: 440px; margin: var(--space-4) auto var(--space-8); line-height: 1.7;">Message Ahin or Divya on WhatsApp and we'll get back to you promptly with availability and anything you'd like to know.</p>
+      <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+        <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="btn btn--primary" target="_blank">
+          <i class="ph ph-whatsapp-logo"></i> Message Us on WhatsApp
+        </a>
+        <a href="tel:+917906174040" class="btn btn--outline-dark">
+          <i class="ph ph-phone"></i> +91 79061 74040
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="ph ph-whatsapp-logo"></i>
+  </a>
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    <div>
+      <div class="bottom-bar__price">₹6,000</div>
+      <div class="bottom-bar__label">per set / per night</div>
+    </div>
+    <a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." class="btn btn--primary" target="_blank">
+      Book Now <i class="ph ph-arrow-right"></i>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo"><img src="images/logo-white.png" alt="Ashirwad Homestay — Bhimtal" style="height:110px;width:auto;"></a>
+          <p class="footer__desc">Two independent 2-BHK sets in Bhimtal, Uttarakhand.<br>150m from Kainchi Dham shuttle parking.</p>
+          <p style="font-size:13px; color: rgba(255,255,255,0.5); margin-top: var(--space-3);">Hosted by Ahin &amp; Divya Pande</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Pages</h4>
+          <ul class="footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms &amp; Rates</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="food.html">Food</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="book.html">Book Now</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <ul class="footer__links">
+            <li><p>Industrial Area, Bhimtal,<br>District Nainital, Uttarakhand</p></li>
+            <li><a href="tel:+917906174040">+91 79061 74040</a></li>
+            <li><a href="https://wa.me/917906174040?text=Hello!%20I%27d%20like%20to%20book%20Ashirwad%20Homestay%2C%20Bhimtal.%20Please%20share%20availability." target="_blank">WhatsApp Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2026 Ashirwad Homestay. All rights reserved. &nbsp;|&nbsp; ashirwadhomestay.in
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

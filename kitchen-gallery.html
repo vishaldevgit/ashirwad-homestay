@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kitchen Gallery — Ashirwad Homestay, Bhimtal</title>
+  <meta name="description" content="A modern modular sanctuary designed for the soul. Warm wooden cabinetry meets state-of-the-art appliances, all framed by the serene peaks of Bhimtal.">
+  <link rel="icon" href="images/logo-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/logo-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    body { background: var(--surface-base); }
+
+    /* ── Header ── */
+    .kg-header {
+      padding: 56px 0 40px;
+    }
+    .kg-header__layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+    }
+    .kg-header__eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      margin-bottom: 10px;
+    }
+    .kg-header__title {
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.1;
+    }
+    .kg-header__desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ── Category Tabs ── */
+    .kg-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+    }
+    .kg-tab {
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .kg-tab:hover { color: var(--text-primary); }
+    .kg-tab.active {
+      background: var(--color-forest);
+      color: #fff;
+    }
+
+    /* ── Hero Hero split: large left + info card right ── */
+    .kg-hero-split {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .kg-hero-img {
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/3;
+    }
+    .kg-hero-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .kg-hero-img:hover img { transform: scale(1.03); }
+    .kg-hero-img__caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(10,20,15,0.62);
+      backdrop-filter: blur(4px);
+      padding: 24px 20px 18px;
+    }
+    .kg-hero-img__caption h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .kg-hero-img__caption p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.5;
+    }
+
+    .kg-info-card {
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/3;
+    }
+    .kg-info-card img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .kg-info-card:hover img { transform: scale(1.04); }
+    .kg-info-card__overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      padding: 20px;
+    }
+    .kg-info-card__badge {
+      display: inline-block;
+      background: rgba(10,20,15,0.75);
+      color: rgba(255,255,255,0.9);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 3px;
+      margin-bottom: 8px;
+    }
+    .kg-info-card__title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      color: #fff;
+    }
+    .kg-info-card__desc {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(10,20,15,0.7));
+      padding: 40px 20px 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+    }
+
+    /* ── 3-column grid ── */
+    .kg-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 64px;
+    }
+    .kg-grid-item {
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      transition: transform 0.3s ease;
+    }
+    .kg-grid-item img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .kg-grid-item:hover img { transform: scale(1.05); }
+
+    /* ── Designed for Gatherings ── */
+    .kg-gatherings {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 48px 0 64px;
+    }
+    .kg-gatherings__eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      margin-bottom: 12px;
+    }
+    .kg-gatherings__title {
+      font-family: var(--font-display);
+      font-size: 38px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 32px;
+      line-height: 1.2;
+    }
+    .kg-feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .kg-feature-item {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .kg-feature-item__icon {
+      width: 32px; height: 32px;
+      background: var(--surface-warm);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      color: var(--color-forest);
+      flex-shrink: 0;
+    }
+    .kg-feature-item__title {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+    .kg-feature-item__desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .kg-gatherings__image {
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+    .kg-gatherings__image img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    /* ── Amenity icons row ── */
+    .kg-amenities-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding: 48px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 0;
+    }
+    .kg-amenity {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+    }
+    .kg-amenity__icon {
+      width: 48px; height: 48px;
+      background: var(--surface-warm);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      color: var(--color-forest);
+    }
+    .kg-amenity__label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── Stitch Footer (reuse from rooms gallery) ── */
+    .stitch-footer {
+      background: var(--color-forest);
+      color: #fff;
+      padding: 64px 0 32px;
+    }
+    .stitch-footer__grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .stitch-footer__brand-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--color-marigold);
+      margin-bottom: 12px;
+    }
+    .stitch-footer__brand-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 220px;
+    }
+    .stitch-footer__heading {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 20px;
+    }
+    .stitch-footer__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .stitch-footer__links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .stitch-footer__links a:hover { color: #fff; }
+    .stitch-footer__contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+    }
+    .stitch-footer__contact-item i { font-size: 14px; margin-top: 1px; flex-shrink: 0; }
+    .newsletter-row {
+      display: flex;
+      gap: 0;
+      margin-top: 0;
+    }
+    .newsletter-input {
+      flex: 1;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+      color: #fff;
+      font-size: 13px;
+      outline: none;
+    }
+    .newsletter-input::placeholder { color: rgba(255,255,255,0.4); }
+    .newsletter-btn {
+      padding: 10px 16px;
+      background: var(--color-marigold);
+      color: var(--color-forest);
+      border: none;
+      border-radius: 0 4px 4px 0;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .newsletter-btn:hover { opacity: 0.85; }
+    .stitch-footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    @media (max-width: 900px) {
+      .kg-header__layout { grid-template-columns: 1fr; }
+      .kg-tabs { justify-content: flex-start; flex-wrap: wrap; }
+      .kg-hero-split { grid-template-columns: 1fr; }
+      .kg-grid-3 { grid-template-columns: 1fr 1fr; }
+      .kg-gatherings { grid-template-columns: 1fr; }
+      .stitch-footer__grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo"><svg class="site-logo__mountain" viewBox="0 0 44 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M0 30 L15 7 L22 16 L29 3 L44 30 Z"/><path d="M25.5 11 L29 3 L32.5 11 Z" opacity="0.45"/></svg><div class="site-logo__text"><span class="site-logo__name">ASHIRWAD</span><span class="site-logo__sub">Homestay · Bhimtal</span></div></a>
+      <ul class="navbar__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="location.html">Location</a></li>
+      </ul>
+      <div class="navbar__cta">
+        <a href="book.html" class="btn btn--primary">Book Now</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html">Home</a>
+    <a href="rooms.html">Rooms</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="location.html">Location</a>
+    <a href="book.html" style="color: var(--color-terracotta);">Book Now</a>
+  </div>
+
+  <main>
+
+    <!-- Page Header + Tabs -->
+    <section class="kg-header">
+      <div class="container">
+        <div class="kg-header__layout">
+          <div>
+            <p class="kg-header__eyebrow">Culinaria &amp; Hearth</p>
+            <h1 class="kg-header__title">Kitchen Gallery</h1>
+            <p class="kg-header__desc">A modern modular sanctuary designed for the soul. Warm wooden cabinetry meets state-of-the-art appliances, all framed by the serene peaks of Bhimtal.</p>
+          </div>
+          <div class="kg-tabs">
+            <button class="kg-tab">All Spaces</button>
+            <button class="kg-tab">Living</button>
+            <button class="kg-tab active">Kitchen</button>
+            <button class="kg-tab">Bedrooms</button>
+            <button class="kg-tab">Exterior</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero split: large image with caption + info card -->
+    <section style="padding-top: 0; padding-bottom: 0;">
+      <div class="container">
+        <div class="kg-hero-split">
+          <div class="kg-hero-img">
+            <img src="assets/images/kitchen-morning.jpg" alt="The Morning Vista">
+            <div class="kg-hero-img__caption">
+              <h3>The Morning Vista</h3>
+              <p>Brew your morning coffee while the sun climbs over the Kumaoni ridge through floor-to-ceiling glass.</p>
+            </div>
+          </div>
+          <div class="kg-info-card">
+            <img src="assets/images/kitchen-appliances.jpg" alt="Pro Appliances">
+            <div class="kg-info-card__overlay">
+              <span class="kg-info-card__badge">Pro Appliances</span>
+            </div>
+            <div class="kg-info-card__desc">
+              State-of-the-art induction, convection oven, and silent chimney for an effortless culinary experience.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3-col grid row -->
+    <section style="padding-top: 12px; padding-bottom: 0;">
+      <div class="container">
+        <div class="kg-grid-3">
+          <div class="kg-grid-item">
+            <img src="assets/images/room-double.jpg" alt="Kitchen pantry">
+          </div>
+          <div class="kg-grid-item">
+            <img src="assets/images/room-twin.jpg" alt="Kitchen fruits">
+          </div>
+          <div class="kg-grid-item">
+            <img src="assets/images/hero-exterior.jpg" alt="Kitchen sink view">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Designed for Gatherings -->
+    <section style="background: var(--surface-base);">
+      <div class="container">
+        <div class="kg-gatherings">
+          <div>
+            <p class="kg-gatherings__eyebrow">Craftsmanship</p>
+            <h2 class="kg-gatherings__title">Designed for Gatherings</h2>
+            <div class="kg-feature-list">
+              <div class="kg-feature-item">
+                <div class="kg-feature-item__icon"><i class="ph ph-cooking-pot"></i></div>
+                <div>
+                  <p class="kg-feature-item__title">Fully Modular Layout</p>
+                  <p class="kg-feature-item__desc">Ergonomic design allowing for multiple chefs to work together comfortably.</p>
+                </div>
+              </div>
+              <div class="kg-feature-item">
+                <div class="kg-feature-item__icon"><i class="ph ph-tree"></i></div>
+                <div>
+                  <p class="kg-feature-item__title">Locally Sourced Timber</p>
+                  <p class="kg-feature-item__desc">Cabinetry crafted by local artisans using sustainable Himalayan cedar and oak.</p>
+                </div>
+              </div>
+              <div class="kg-feature-item">
+                <div class="kg-feature-item__icon"><i class="ph ph-basket"></i></div>
+                <div>
+                  <p class="kg-feature-item__title">Organic Pantry</p>
+                  <p class="kg-feature-item__desc">Stocked with local spices, organic honey, and Himalayan tea blends for your stay.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="kg-gatherings__image">
+            <img src="assets/images/kitchen-morning.jpg" alt="Dining area for gatherings">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Amenity Icons Row -->
+    <section>
+      <div class="container">
+        <div class="kg-amenities-row">
+          <div class="kg-amenity">
+            <div class="kg-amenity__icon"><i class="ph ph-coffee"></i></div>
+            <span class="kg-amenity__label">Espresso Bar</span>
+          </div>
+          <div class="kg-amenity">
+            <div class="kg-amenity__icon"><i class="ph ph-oven"></i></div>
+            <span class="kg-amenity__label">Smart Oven</span>
+          </div>
+          <div class="kg-amenity">
+            <div class="kg-amenity__icon"><i class="ph ph-wine"></i></div>
+            <span class="kg-amenity__label">Wine &amp; Glass</span>
+          </div>
+          <div class="kg-amenity">
+            <div class="kg-amenity__icon"><i class="ph ph-calendar-blank"></i></div>
+            <span class="kg-amenity__label">Meal Planner</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="stitch-footer">
+    <div class="container">
+      <div class="stitch-footer__grid">
+        <div>
+          <p class="stitch-footer__brand-name">Ashirwad Homestay</p>
+          <p class="stitch-footer__brand-desc">A sanctuary of Kumaoni heritage and modern luxury in the heart of Bhimtal's emerald peaks.</p>
+        </div>
+        <div>
+          <p class="stitch-footer__heading">Explore</p>
+          <ul class="stitch-footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="location.html">Location</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="stitch-footer__heading">Legal</p>
+          <ul class="stitch-footer__links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="stitch-footer__heading">Newsletter</p>
+          <div class="newsletter-row">
+            <input class="newsletter-input" type="email" placeholder="Email">
+            <button class="newsletter-btn">JOIN</button>
+          </div>
+        </div>
+      </div>
+      <div class="stitch-footer__bottom">
+        © 2024 Ashirwad Homestay, Bhimtal.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
