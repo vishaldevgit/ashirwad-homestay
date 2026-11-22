@@ -266,12 +266,25 @@
 <script>
   // ── CONSTANTS ──
   var ADMIN_PASSWORD = 'Welcome@123';
+  var _authed = false;
+
+  function authSet(val) {
+    _authed = val;
+    try { sessionStorage.setItem('adminAuth', val ? '1' : '0'); } catch(e) {}
+    try { if (val) localStorage.setItem('adminAuth', '1'); else localStorage.removeItem('adminAuth'); } catch(e) {}
+  }
+  function authGet() {
+    if (_authed) return true;
+    try { if (sessionStorage.getItem('adminAuth') === '1') return true; } catch(e) {}
+    try { if (localStorage.getItem('adminAuth') === '1') return true; } catch(e) {}
+    return false;
+  }
 
   // ── LOGIN ──
   function doLogin() {
     var pwd = document.getElementById('pwd-input').value;
     if (pwd === ADMIN_PASSWORD) {
-      sessionStorage.setItem('adminAuth', '1');
+      authSet(true);
       showPanel();
     } else {
       document.getElementById('login-error').style.display = 'block';
@@ -284,13 +297,13 @@
   });
 
   function doLogout() {
-    sessionStorage.removeItem('adminAuth');
+    authSet(false);
     location.reload();
   }
 
   // ── INIT ──
   window.addEventListener('DOMContentLoaded', function () {
-    if (sessionStorage.getItem('adminAuth') === '1') {
+    if (authGet()) {
       showPanel();
     }
   });
@@ -369,6 +382,8 @@
   // ── PREVIEW ──
   function updatePreview() {
     var bar = document.getElementById('bar-preview');
+    // Reset all inline styles first
+    bar.removeAttribute('style');
     bar.className = '';
 
     function fmt(n) { return '₹' + parseInt(n).toLocaleString('en-IN'); }
@@ -384,15 +399,8 @@
       bar.className = 'mode-festival';
       bar.innerHTML = '🎉 ' + text + ' &mdash; <strong>' + fmt(price) + '/night</strong> <span class="strike">' + fmt(orig) + '</span>' + (till ? ' &nbsp;·&nbsp; Valid till ' + till : '') + ' &nbsp; <strong>Book Now →</strong>';
     } else {
-      bar.className = '';
-      bar.style.display = 'none';
-      bar.style.display = '';
-      bar.innerHTML = '<span style="color:#888;font-weight:400;">No offer bar will be shown. Regular price ₹6,000/night displayed.</span>';
-      bar.style.background = '#f5f5f0';
-      bar.style.color = '#888';
-      bar.style.display = 'block';
-      bar.style.border = '1px dashed #ccc';
-      return;
+      bar.style.cssText = 'display:block; background:#f5f5f0; color:#999; border:1px dashed #ccc; padding:12px; border-radius:6px; font-weight:400; font-size:13px;';
+      bar.innerHTML = 'No offer bar will be shown. Regular price ₹6,000/night displayed.';
     }
   }
 
