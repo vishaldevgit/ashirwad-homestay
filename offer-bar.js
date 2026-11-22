@@ -121,10 +121,23 @@
     });
   }
 
+  // Default offer shown when Firebase is not yet configured
+  var DEFAULT_OFFER = {
+    mode: 'festival',
+    festival: {
+      text: 'New Property Opening Special',
+      price: 3000,
+      originalPrice: 6000,
+      validTill: 'Limited Period'
+    },
+    offSeason: { price: 3000, peakPrice: 6000 }
+  };
+
   function loadOfferFromFirebase() {
     // Check if Firebase is configured
     if (!window.FIREBASE_CONFIG || window.FIREBASE_CONFIG.apiKey === 'YOUR_API_KEY') {
-      // Firebase not configured — show nothing
+      // Firebase not set up yet — use default hardcoded offer
+      renderBar(DEFAULT_OFFER);
       return;
     }
 
