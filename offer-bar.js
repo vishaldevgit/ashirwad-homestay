@@ -109,15 +109,48 @@
     updateInlinePrices(config);
   }
 
+  var _priceOriginals = [];
+
   function updateInlinePrices(config) {
-    // Update elements with data-offer-price attribute
-    var priceEls = document.querySelectorAll('[data-offer-price]');
-    priceEls.forEach(function(el) {
-      if (config.mode !== 'none') {
-        var offerPrice = config.mode === 'off-season' ? config.offSeason.price : config.festival.price;
-        var originalPrice = config.mode === 'off-season' ? config.offSeason.peakPrice : config.festival.originalPrice;
-        el.innerHTML = '<strong>' + formatPrice(offerPrice) + '</strong> <span style="text-decoration:line-through;opacity:0.6;font-weight:400;">' + formatPrice(originalPrice) + '</span>';
+    // Restore any previously replaced prices
+    _priceOriginals.forEach(function(item) {
+      if (item.node.parentNode) item.node.parentNode.replaceChild(item.original, item.node);
+    });
+    _priceOriginals = [];
+
+    if (!config || config.mode === 'none') return;
+
+    var offerPrice = config.mode === 'off-season' ? config.offSeason.price : config.festival.price;
+    var offerStr = formatPrice(offerPrice);
+    var origStr = '₹6,000';
+
+    // Walk all text nodes in body, skip the offer bar itself
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    var nodes = [];
+    var node;
+    while ((node = walker.nextNode())) {
+      if (node.parentNode && node.parentNode.closest && node.parentNode.closest('#ashirwad-offer-bar')) continue;
+      if (node.nodeValue && node.nodeValue.indexOf(origStr) !== -1) {
+        nodes.push(node);
       }
+    }
+
+    nodes.forEach(function(textNode) {
+      var parts = textNode.nodeValue.split(origStr);
+      if (parts.length < 2) return;
+      var frag = document.createDocumentFragment();
+      parts.forEach(function(part, i) {
+        frag.appendChild(document.createTextNode(part));
+        if (i < parts.length - 1) {
+          var wrap = document.createElement('span');
+          wrap.innerHTML = '<strong style="color:inherit">' + offerStr + '</strong> <span style="text-decoration:line-through;opacity:0.55;font-size:0.85em;font-weight:400;">' + origStr + '</span>';
+          frag.appendChild(wrap);
+        }
+      });
+      var replacement = document.createElement('span');
+      replacement.appendChild(frag);
+      textNode.parentNode.replaceChild(replacement, textNode);
+      _priceOriginals.push({ node: replacement, original: textNode });
     });
   }
 
